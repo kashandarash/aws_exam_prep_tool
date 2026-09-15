@@ -3,23 +3,25 @@
 namespace App\Controller;
 
 use App\Entity\Visit;
+use App\Repository\QuestionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class HelloController extends AbstractController
+class HomeController extends AbstractController
 {
-    #[Route('/', name: 'hello_world')]
-    public function index(EntityManagerInterface $entityManager): Response
+    #[Route('/', name: 'home')]
+    public function index(EntityManagerInterface $entityManager, QuestionRepository $questionRepository): Response
     {
         $entityManager->persist(new Visit());
         $entityManager->flush();
 
         $visitCount = $entityManager->getRepository(Visit::class)->count([]);
 
-        return $this->render('hello/index.html.twig', [
+        return $this->render('home/index.html.twig', [
             'visitCount' => $visitCount,
+            'questionCount' => $questionRepository->count([]),
         ]);
     }
 }

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <div class="text-center mb-5">
+        <h1 class="display-4">AWS Exam Prep Tool</h1>
+        <p class="lead">Build a question bank from real exam pages and practice against it.</p>
+        <p class="text-muted mb-0">{{ questionCount }} question{{ questionCount == 1 ? '' : 's' }} in the bank &middot; visit #{{ visitCount }} recorded</p>
+    </div>
+
+    <h2 class="h4 mb-3">How it works</h2>
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5 card-title">1. Import</h3>
+                    <p class="card-text">
+                        On the <a href="{{ path('question_add') }}">Add Question</a> page, paste the HTML
+                        of an exam question page. It's sent to the Bedrock API, which reads the page and
+                        extracts every question, its options, and the correct answer(s) &mdash; wording is
+                        copied exactly as written, and anything already in the bank is skipped.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5 card-title">2. Review</h3>
+                    <p class="card-text">
+                        The <a href="{{ path('question_list') }}">Questions</a> page lists everything that's
+                        been imported so far. Open any question to fix a typo or correct an answer on its
+                        <a href="{{ path('question_list') }}">edit page</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h3 class="h5 card-title">3. Practice</h3>
+                    <p class="card-text">
+                        <a href="{{ path('test_run') }}">Run Test</a> pulls up to 30 random questions from
+                        the bank, lets you answer them, and then scores you against the correct answer(s)
+                        for each one.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

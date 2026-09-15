@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class TestController extends AbstractController
 {
-    private const QUESTIONS_PER_TEST = 10;
+    private const QUESTIONS_PER_TEST = 30;
 
     #[Route('/test/run', name: 'test_run', methods: ['GET', 'POST'])]
     public function run(Request $request, QuestionRepository $questionRepository): Response

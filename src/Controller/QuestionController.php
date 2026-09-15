@@ -15,6 +15,61 @@ class QuestionController extends AbstractController
 {
     private const TOOL_NAME = 'record_questions';
 
+    #[Route('/questions', name: 'question_list', methods: ['GET'])]
+    public function list(QuestionRepository $questionRepository): Response
+    {
+        return $this->render('question/list.html.twig', [
+            'questions' => $questionRepository->findBy([], ['id' => 'ASC']),
+        ]);
+    }
+
+    #[Route('/questions/{id}/edit', name: 'question_edit', methods: ['GET', 'POST'], requirements: ['id' => '\d+'])]
+    public function edit(int $id, Request $request, EntityManagerInterface $entityManager, QuestionRepository $questionRepository): Response
+    {
+        $question = $questionRepository->find($id);
+
+        if (null === $question) {
+            throw $this->createNotFoundException('Question not found.');
+        }
+
+        if ($request->isMethod('POST')) {
+            $text = trim($request->request->getString('text'));
+
+            $options = [];
+            foreach ($request->request->all('option') as $row) {
+                $optionText = trim((string) ($row['text'] ?? ''));
+
+                if ('' === $optionText) {
+                    continue;
+                }
+
+                $options[] = [
+                    'text' => $optionText,
+                    'correct' => !empty($row['correct']),
+                ];
+            }
+
+            $hasCorrectOption = [] !== array_filter($options, static fn (array $option): bool => $option['correct']);
+
+            if ('' === $text || count($options) < 2 || !$hasCorrectOption) {
+                $this->addFlash('error', 'Please fill in the question, at least two options, and mark at least one option as correct.');
+
+                return $this->redirectToRoute('question_edit', ['id' => $id]);
+            }
+
+            $question->setText($text)->setOptions($options);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Question updated.');
+
+            return $this->redirectToRoute('question_list');
+        }
+
+        return $this->render('question/edit.html.twig', [
+            'question' => $question,
+        ]);
+    }
+
     #[Route('/questions/add', name: 'question_add', methods: ['GET', 'POST'])]
     public function add(
         Request $request,
