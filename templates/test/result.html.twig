@@ -7,26 +7,39 @@
     <p class="lead">You scored {{ correct }} out of {{ total }}.</p>
 
     {% for result in results %}
-        <div class="card mb-3 {{ result.isCorrect ? 'border-success' : 'border-danger' }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ loop.index }}. {{ result.question.text }}</h5>
-                <p class="card-text mb-0">
-                    Your answer:
-                    {% if result.submittedIndexes is empty %}
-                        No answer
-                    {% else %}
-                        {% for index in result.submittedIndexes %}{{ result.question.options[index].text }}{% if not loop.last %}, {% endif %}{% endfor %}
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span>
+                    <strong>Question {{ loop.index }}</strong>
+                    {% if result.question.isMultiAnswer %}
+                        <span class="badge text-bg-info ms-2">Choose {{ result.question.correctIndexes|length }}</span>
                     {% endif %}
-                </p>
-                {% if not result.isCorrect %}
-                    <p class="card-text text-success mb-0">
-                        Correct answer:
-                        {% for index in result.question.correctIndexes %}{{ result.question.options[index].text }}{% if not loop.last %}, {% endif %}{% endfor %}
-                    </p>
+                </span>
+                <span class="badge {{ result.isCorrect ? 'text-bg-success' : 'text-bg-danger' }}">{{ result.isCorrect ? 'Correct' : 'Incorrect' }}</span>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ result.question.text|nl2br }}</p>
+                <ul class="list-group list-group-flush">
+                    {% for index, option in result.question.options %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center{{ option.correct ? ' list-group-item-success' : (index in result.submittedIndexes ? ' list-group-item-danger' : '') }}">
+                            <span>
+                                {% if option.correct %}
+                                    <span class="me-2 text-success" aria-hidden="true">&#10003;</span>
+                                {% endif %}
+                                {{ option.text }}
+                            </span>
+                            {% if index in result.submittedIndexes %}
+                                <span class="badge text-bg-secondary ms-2">Your answer</span>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% if result.submittedIndexes is empty %}
+                    <p class="card-text text-muted mt-2 mb-0">You didn't answer this question.</p>
                 {% endif %}
             </div>
         </div>
     {% endfor %}
 
-    <a href="{{ path('test_run') }}" class="btn btn-primary">Run Another Test</a>
+    <a href="{{ path('test_take') }}" class="btn btn-primary">Take Another Test</a>
 {% endblock %}

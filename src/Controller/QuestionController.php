@@ -14,12 +14,28 @@ use Symfony\Component\Routing\Attribute\Route;
 class QuestionController extends AbstractController
 {
     private const TOOL_NAME = 'record_questions';
+    private const QUESTIONS_PER_PAGE = 20;
 
     #[Route('/questions', name: 'question_list', methods: ['GET'])]
-    public function list(QuestionRepository $questionRepository): Response
+    public function list(Request $request, QuestionRepository $questionRepository): Response
     {
+        $search = trim($request->query->getString('q'));
+        $page = max(1, $request->query->getInt('page', 1));
+
+        $result = $questionRepository->search($search, $page, self::QUESTIONS_PER_PAGE);
+        $totalPages = max(1, (int) ceil($result['total'] / self::QUESTIONS_PER_PAGE));
+
+        if ($page > $totalPages) {
+            return $this->redirectToRoute('question_list', ['q' => $search, 'page' => $totalPages]);
+        }
+
         return $this->render('question/list.html.twig', [
-            'questions' => $questionRepository->findBy([], ['id' => 'ASC']),
+            'questions' => $result['items'],
+            'total' => $result['total'],
+            'page' => $page,
+            'perPage' => self::QUESTIONS_PER_PAGE,
+            'totalPages' => $totalPages,
+            'search' => $search,
         ]);
     }
 

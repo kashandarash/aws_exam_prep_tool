@@ -12,8 +12,8 @@ class TestController extends AbstractController
 {
     private const QUESTIONS_PER_TEST = 30;
 
-    #[Route('/test/run', name: 'test_run', methods: ['GET', 'POST'])]
-    public function run(Request $request, QuestionRepository $questionRepository): Response
+    #[Route('/test/take', name: 'test_take', methods: ['GET', 'POST'])]
+    public function take(Request $request, QuestionRepository $questionRepository): Response
     {
         if ($request->isMethod('POST')) {
             $questionIds = array_map('intval', $request->request->all('question_ids'));
@@ -53,7 +53,7 @@ class TestController extends AbstractController
         shuffle($questions);
         $questions = array_slice($questions, 0, self::QUESTIONS_PER_TEST);
 
-        return $this->render('test/run.html.twig', [
+        return $this->render('test/take.html.twig', [
             'questions' => $questions,
         ]);
     }
