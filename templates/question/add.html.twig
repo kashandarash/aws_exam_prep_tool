@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Question{% endblock %}
+
+{% block body %}
+    {% if bedrockConnected %}
+        <span class="badge text-bg-success mb-3">Bedrock API: Connected</span>
+    {% else %}
+        <span class="badge text-bg-danger mb-3">Bedrock API: Unavailable</span>
+    {% endif %}
+
+    <h1 class="mb-4">Add Question</h1>
+
+    <form method="post" action="{{ path('question_add') }}" class="col-lg-8">
+        <div class="mb-3">
+            <label for="text" class="form-label">Question</label>
+            <textarea class="form-control" id="text" name="text" rows="3" required></textarea>
+        </div>
+
+        <label class="form-label">Options</label>
+        <div id="options-list">
+            {% for i in 0..1 %}
+                <div class="input-group mb-2 option-row">
+                    <span class="input-group-text">
+                        <input class="form-check-input mt-0" type="checkbox" name="option[{{ i }}][correct]" value="1" aria-label="Mark this option as correct">
+                    </span>
+                    <input type="text" class="form-control" name="option[{{ i }}][text]" placeholder="Option text" required>
+                    <button type="button" class="btn btn-outline-danger remove-option" aria-label="Remove option" disabled>&times;</button>
+                </div>
+            {% endfor %}
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm mb-3" id="add-option">+ Add option</button>
+        <p class="form-text">Check the box next to every correct option — check more than one for a multiple-answer question.</p>
+
+        <button type="submit" class="btn btn-primary">Save Question</button>
+    </form>
+
+    <script>
+        (function () {
+            var list = document.getElementById('options-list');
+            var addButton = document.getElementById('add-option');
+            var nextIndex = list.querySelectorAll('.option-row').length;
+
+            function updateRemoveButtons() {
+                var rows = list.querySelectorAll('.option-row');
+                rows.forEach(function (row) {
+                    row.querySelector('.remove-option').disabled = rows.length <= 2;
+                });
+            }
+
+            addButton.addEventListener('click', function () {
+                var row = document.createElement('div');
+                row.className = 'input-group mb-2 option-row';
+                row.innerHTML =
+                    '<span class="input-group-text">' +
+                        '<input class="form-check-input mt-0" type="checkbox" name="option[' + nextIndex + '][correct]" value="1" aria-label="Mark this option as correct">' +
+                    '</span>' +
+                    '<input type="text" class="form-control" name="option[' + nextIndex + '][text]" placeholder="Option text" required>' +
+                    '<button type="button" class="btn btn-outline-danger remove-option" aria-label="Remove option">&times;</button>';
+                list.appendChild(row);
+                nextIndex++;
+                updateRemoveButtons();
+            });
+
+            list.addEventListener('click', function (event) {
+                if (!event.target.classList.contains('remove-option')) {
+                    return;
+                }
+
+                if (list.querySelectorAll('.option-row').length > 2) {
+                    event.target.closest('.option-row').remove();
+                    updateRemoveButtons();
+                }
+            });
+
+            updateRemoveButtons();
+        })();
+    </script>
+{% endblock %}

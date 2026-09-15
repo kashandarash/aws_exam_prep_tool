@@ -7,6 +7,7 @@
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "aws/aws-sdk-php": "^3.395",
         "doctrine/dbal": "*",
         "doctrine/doctrine-bundle": "*",
         "doctrine/orm": "^3.7",

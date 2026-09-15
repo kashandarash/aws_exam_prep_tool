@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Test Results{% endblock %}
+
+{% block body %}
+    <h1 class="mb-4">Test Results</h1>
+    <p class="lead">You scored {{ correct }} out of {{ total }}.</p>
+
+    {% for result in results %}
+        <div class="card mb-3 {{ result.isCorrect ? 'border-success' : 'border-danger' }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ loop.index }}. {{ result.question.text }}</h5>
+                <p class="card-text mb-0">
+                    Your answer:
+                    {% if result.submittedIndexes is empty %}
+                        No answer
+                    {% else %}
+                        {% for index in result.submittedIndexes %}{{ result.question.options[index].text }}{% if not loop.last %}, {% endif %}{% endfor %}
+                    {% endif %}
+                </p>
+                {% if not result.isCorrect %}
+                    <p class="card-text text-success mb-0">
+                        Correct answer:
+                        {% for index in result.question.correctIndexes %}{{ result.question.options[index].text }}{% if not loop.last %}, {% endif %}{% endfor %}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+
+    <a href="{{ path('test_run') }}" class="btn btn-primary">Run Another Test</a>
+{% endblock %}
