@@ -15,4 +15,15 @@ class QuestionRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Question::class);
     }
+
+    /**
+     * @return list<string>
+     */
+    public function findAllTexts(): array
+    {
+        return $this->createQueryBuilder('q')
+            ->select('q.text')
+            ->getQuery()
+            ->getSingleColumnResult();
+    }
 }
