@@ -11,10 +11,11 @@
 
     <h1 class="mb-4">Add Questions</h1>
     <p class="form-text">
-        Paste the HTML of an exam question page below (see <code>data/input_example.html</code>
-        for the kind of page this expects). It's sent to the Bedrock API, which extracts the
-        questions, their options, and the correct answer(s), and adds any that aren't already
-        in the bank — nothing here is added or changed by hand.
+        Paste the HTML of an AWS Certified Developer Associate (DVA-C02) exam question page
+        below (see <code>data/input_example.html</code> for the kind of page this expects).
+        It's sent to the Bedrock API, which extracts the questions, their options, and the
+        correct answer(s), and adds any that aren't already in the bank — nothing here is
+        added or changed by hand.
     </p>
 
     <form method="post" action="{{ path('question_add') }}">

@@ -356,9 +356,10 @@ class QuestionController extends AbstractController
     private function explanationSystemPrompt(): string
     {
         return <<<'PROMPT'
-            You are an AWS certification exam tutor. You will be given a multiple-choice
-            exam question, its answer options in order, and which option(s) are marked
-            [CORRECT] according to the question bank's answer key.
+            You are an AWS Certified Developer Associate (DVA-C02) exam tutor. You will
+            be given a multiple-choice exam question, its answer options in order, and
+            which option(s) are marked [CORRECT] according to the question bank's answer
+            key.
 
             Write a clear, technically accurate explanation as plain text (no markdown
             headers, no code fences, no bullet characters):

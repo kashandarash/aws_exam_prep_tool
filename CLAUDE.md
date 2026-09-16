@@ -5,13 +5,14 @@ repository.
 
 ## What this is
 
-An AWS certification exam-prep tool: import exam questions, browse/edit
-the bank, and take randomized practice tests that retire questions once
-you've gotten them right enough times. It started as a minimal Symfony
-"Hello World" skeleton and has grown a real feature set (see below), but
-the original constraint still holds — keep it runnable with just PHP and
-Composer, no Docker, no Node/npm build step, and don't add abstractions
-or infrastructure beyond what a feature actually needs.
+An AWS Certified Developer Associate (DVA-C02) exam-prep tool: import
+exam questions, browse/edit the bank, and take randomized practice
+tests that retire questions once you've gotten them right enough
+times. It started as a minimal Symfony "Hello World" skeleton and has
+grown a real feature set (see below), but the original constraint
+still holds — keep it runnable with just PHP and Composer, no Docker,
+no Node/npm build step, and don't add abstractions or infrastructure
+beyond what a feature actually needs.
 
 ## Stack
 
@@ -35,11 +36,12 @@ or infrastructure beyond what a feature actually needs.
 
 - `/` (`HomeController`) — landing page with bank stats and a summary of
   the workflow below.
-- `/questions/add` (`QuestionController::add`) — paste the HTML of an
-  exam-question page; it's sent to Bedrock via the Converse API with a
-  forced tool call to extract questions/options/correct answer(s)
-  verbatim (see `extractionSystemPrompt()`), deduplicated against the
-  existing bank before saving.
+- `/questions/add` (`QuestionController::add`) — paste the HTML of an AWS
+  Certified Developer Associate (DVA-C02) exam-question page; it's sent
+  to Bedrock via the Converse API with a forced tool call to extract
+  questions/options/correct answer(s) verbatim (see
+  `extractionSystemPrompt()`), deduplicated against the existing bank
+  before saving.
 - `/questions` (`QuestionController::list`) — search (question text
   only), filter by mastery status, and paginate (20/page) the bank; each
   question links to its edit page.

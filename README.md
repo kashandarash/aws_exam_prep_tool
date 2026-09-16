@@ -1,8 +1,8 @@
-# AWS Exam Prep Tool
+# AWS Developer Associate Exam Prep Tool
 
 A [Symfony](https://symfony.com) 7 app for building a personal AWS
-certification question bank and practicing against it — no Docker, no
-Node/npm build step.
+Certified Developer Associate (DVA-C02) question bank and practicing
+against it — no Docker, no Node/npm build step.
 
 ## Stack
 
@@ -43,9 +43,10 @@ Open [http://127.0.0.1:8000](http://127.0.0.1:8000).
 ## What it does
 
 - **Home** (`/`) — bank stats and a summary of the workflow below.
-- **Add Questions** (`/questions/add`) — paste the HTML of an exam-question
-  page; Bedrock extracts every question, its options, and the correct
-  answer(s), skipping anything already in the bank.
+- **Add Questions** (`/questions/add`) — paste the HTML of an AWS Certified
+  Developer Associate (DVA-C02) exam-question page; Bedrock extracts every
+  question, its options, and the correct answer(s), skipping anything
+  already in the bank.
 - **Questions** (`/questions`) — search, filter by mastery status, and
   page through the bank; edit any question by hand.
 - **Take Test** (`/test/take`) — up to 20 random questions that haven't
