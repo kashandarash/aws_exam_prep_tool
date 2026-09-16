@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class TestController extends AbstractController
 {
-    private const QUESTIONS_PER_TEST = 20;
+    private const QUESTIONS_PER_TEST = 10;
 
     #[Route('/test/take', name: 'test_take', methods: ['GET', 'POST'])]
     public function take(Request $request, EntityManagerInterface $entityManager, QuestionRepository $questionRepository): Response
