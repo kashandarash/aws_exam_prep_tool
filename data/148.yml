@@ -1,0 +1,17 @@
+text: 'Multiple Lambda functions in an AWS account are intermittently failing with a "Rate Exceeded" error and a TooManyRequestsException during a marketing campaign that dramatically increases traffic. None of the functions are configured with reserved concurrency. A developer must reduce the number of throttling errors while also guaranteeing that a critical checkout function is never starved of capacity by the other functions sharing the same account. Which two actions should the developer take? (Choose two.)'
+options:
+    -
+        text: "Request an increase to the account's concurrent execution quota through Service Quotas."
+        correct: true
+    -
+        text: 'Configure reserved concurrency on the critical checkout function.'
+        correct: true
+    -
+        text: 'Increase the amount of memory allocated to the checkout function.'
+        correct: false
+    -
+        text: "Change the checkout function's invocation type from synchronous to an event source mapping only."
+        correct: false
+    -
+        text: "Increase the checkout function's timeout to 15 minutes."
+        correct: false

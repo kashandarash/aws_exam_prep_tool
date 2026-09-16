@@ -1,0 +1,14 @@
+text: "A team uses AWS CodeDeploy with the CodeDeployDefault.LambdaCanary10Percent5Minutes deployment configuration to shift traffic to a new version of a Lambda function through an alias. The team wants CodeDeploy to automatically stop the traffic shift and roll back to the previous version if the function's error rate spikes during the 5-minute canary window, without anyone having to watch the deployment. What should the developer configure on the CodeDeploy deployment group?"
+options:
+    -
+        text: 'One or more Amazon CloudWatch alarms associated with the deployment group, with automatic rollback on alarm enabled'
+        correct: true
+    -
+        text: 'A Lambda destination configuration that sends failed asynchronous invocations to an SQS dead-letter queue'
+        correct: false
+    -
+        text: 'AWS X-Ray active tracing on the Lambda function to detect elevated error rates'
+        correct: false
+    -
+        text: 'A second CodeDeploy deployment that automatically redeploys the previous version after 5 minutes'
+        correct: false

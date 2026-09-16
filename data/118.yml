@@ -1,0 +1,17 @@
+text: |-
+    An AWS Lambda function retrieves five configuration values from AWS Systems Manager Parameter Store by calling the GetParameter API directly at the start of every invocation. Under high traffic, the function's logs show an increased number of ThrottlingException errors from Parameter Store, and overall latency has increased. The configuration values are shared across many Lambda functions and are occasionally updated by an operations team, so the developer wants to keep Parameter Store as the source of truth rather than switching to environment variables. The developer wants to add caching with automatic, time-based cache expiration, without writing and maintaining custom caching or expiration logic in the function's code.
+
+    What should the developer do?
+options:
+    -
+        text: "Add the AWS Parameters and Secrets Lambda Extension as a layer on the function, and retrieve the configuration values through the extension's local caching endpoint instead of calling the Systems Manager API directly."
+        correct: true
+    -
+        text: "Declare a variable outside the function's handler to hold the configuration values, populate it on the first invocation, and write custom logic to track how long the values have been cached and when to refresh them."
+        correct: false
+    -
+        text: "Move all of the configuration values into the function's environment variables so that no runtime API calls to Parameter Store are needed."
+        correct: false
+    -
+        text: 'Request a Service Quotas increase for the Systems Manager Parameter Store GetParameter throughput limit in the account.'
+        correct: false

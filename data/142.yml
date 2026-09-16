@@ -1,0 +1,14 @@
+text: 'A developer manages an Amazon ECS service behind an Application Load Balancer, running with the rolling update deployment type. During deployments, the developer wants ECS to always keep the full desired count of tasks running and healthy, while temporarily allowing up to twice the desired count so that new tasks can start before old ones are stopped. Which deployment configuration should the developer set on the service?'
+options:
+    -
+        text: 'minimumHealthyPercent set to 100 and maximumPercent set to 200'
+        correct: true
+    -
+        text: 'minimumHealthyPercent set to 50 and maximumPercent set to 100'
+        correct: false
+    -
+        text: 'minimumHealthyPercent set to 0 and maximumPercent set to 100'
+        correct: false
+    -
+        text: 'minimumHealthyPercent set to 100 and maximumPercent set to 100'
+        correct: false

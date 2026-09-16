@@ -1,0 +1,17 @@
+text: |-
+    A development team manages an AWS Lambda function that is invoked by Amazon API Gateway. The team wants to deploy a new version of the function and gradually shift a small percentage of production traffic to it, so they can monitor error rates before the new version receives all traffic. The team wants to accomplish this using native Lambda features, without adopting a separate deployment automation tool.
+
+    Which approach should the developer use?
+options:
+    -
+        text: "Publish the new code as a new Lambda function version, then update the function's alias to use a weighted routing configuration that sends a small percentage of invocations to the new version while the majority continue to go to the previous version."
+        correct: true
+    -
+        text: 'Update the $LATEST version of the function with the new code, and configure API Gateway to randomly select between two different stages for each incoming request.'
+        correct: false
+    -
+        text: "Deploy the new code as a completely separate Lambda function, and use an Amazon Route 53 weighted routing policy to split traffic between the two functions' API Gateway custom domain endpoints."
+        correct: false
+    -
+        text: "Update the function code directly and rely on Lambda's automatic retry behavior to roll back the deployment automatically if errors increase."
+        correct: false

@@ -1,0 +1,14 @@
+text: "A company's AWS CodeBuild project pushes a new Docker image to an Amazon ECR repository on every build. Over time, the repository has accumulated a large number of untagged images from intermediate builds, increasing storage costs. A developer wants ECR to automatically delete untagged images that are more than 14 days old, without any manual cleanup or custom scripts. What should the developer do?"
+options:
+    -
+        text: 'Create an ECR lifecycle policy rule that expires untagged images older than 14 days'
+        correct: true
+    -
+        text: 'Enable ECR basic image scanning on the repository'
+        correct: false
+    -
+        text: 'Configure an S3 Lifecycle rule on the bucket backing the ECR repository'
+        correct: false
+    -
+        text: "Set the repository's image tag mutability setting to IMMUTABLE"
+        correct: false

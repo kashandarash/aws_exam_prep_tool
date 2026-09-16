@@ -1,0 +1,14 @@
+text: 'A developer manages an Amazon ECS service that uses the rolling update deployment type. During a recent deployment, a bug in the new task definition caused all of the new tasks to repeatedly fail their health checks, but the service kept trying to deploy the broken revision until an engineer noticed and manually intervened. The developer wants ECS to automatically detect a failed deployment and roll back to the last known good task definition, without any custom scripting or manual steps. What should the developer do?'
+options:
+    -
+        text: "Enable the deployment circuit breaker with rollback in the ECS service's deployment configuration"
+        correct: true
+    -
+        text: 'Switch the service to use the AWS CodeDeploy blue/green deployment controller instead of rolling update'
+        correct: false
+    -
+        text: 'Configure an Amazon CloudWatch alarm that stops the ECS service when task failures exceed a threshold'
+        correct: false
+    -
+        text: "Set the service's minimumHealthyPercent to 0 so that failed tasks are replaced more quickly"
+        correct: false

@@ -1,0 +1,17 @@
+text: |-
+    A company runs many AWS Lambda functions in the same AWS account and Region, which share an account-level concurrent execution quota of 1,000. One function, named PaymentProcessor, handles time-sensitive checkout requests and must always be able to run, even during traffic spikes that cause other functions in the account to consume most of the available concurrency and get throttled. A developer needs to guarantee that PaymentProcessor always has execution capacity available, regardless of how much concurrency other functions in the account are using.
+
+    What should the developer do?
+options:
+    -
+        text: "Configure reserved concurrency on the PaymentProcessor function to set aside a portion of the account's concurrency pool exclusively for it."
+        correct: true
+    -
+        text: 'Configure provisioned concurrency on the PaymentProcessor function so that its execution environments are always pre-initialized.'
+        correct: false
+    -
+        text: 'Place an Amazon SQS queue in front of PaymentProcessor and have client applications poll for results instead of invoking it directly.'
+        correct: false
+    -
+        text: 'Increase the memory allocation of the PaymentProcessor function so that each invocation completes faster and frees up concurrency sooner.'
+        correct: false

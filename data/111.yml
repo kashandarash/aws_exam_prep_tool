@@ -1,0 +1,17 @@
+text: |-
+    A mobile application calls a REST API built with Amazon API Gateway and AWS Lambda to retrieve a product catalog that changes only a few times per day. The catalog endpoint receives a very high volume of read traffic, and the company has noticed both increased Lambda costs and higher response latency, even though the underlying data rarely changes between requests. A developer wants to reduce the number of times the Lambda function is invoked for this endpoint, without requiring any changes to the mobile application.
+
+    Which built-in API Gateway feature should the developer enable?
+options:
+    -
+        text: 'API Gateway caching on the stage, with an appropriate time-to-live (TTL) configured for the catalog method, so that repeated identical requests are served from the cache instead of invoking the Lambda function.'
+        correct: true
+    -
+        text: 'Provisioned concurrency for the Lambda function backing the catalog endpoint.'
+        correct: false
+    -
+        text: 'AWS X-Ray active tracing on the API Gateway stage.'
+        correct: false
+    -
+        text: 'A higher throttling limit (requests per second) on the API Gateway usage plan associated with the mobile application.'
+        correct: false

@@ -1,0 +1,17 @@
+text: 'A developer is deploying an application on an Amazon EC2 instance. The application needs to read and write objects in an Amazon S3 bucket. The developer must not store any AWS access keys on the instance or in the application code. How should the developer grant the application access to the S3 bucket?'
+options:
+    -
+        text: 'Create an IAM role with a policy that grants the required S3 permissions, and attach the role to the EC2 instance using an instance profile.'
+        correct: true
+    -
+        text: 'Create an IAM user with the required S3 permissions, generate access keys, and store them in a configuration file on the instance.'
+        correct: false
+    -
+        text: "Embed the AWS account root user's access keys as environment variables on the instance."
+        correct: false
+    -
+        text: "Create an S3 bucket policy that allows any request originating from the EC2 instance's public IP address."
+        correct: false
+    -
+        text: "Add the S3 bucket's ARN to the EC2 instance's security group to permit outbound access."
+        correct: false

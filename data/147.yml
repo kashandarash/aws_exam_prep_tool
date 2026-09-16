@@ -1,0 +1,14 @@
+text: "A developer wrote an AWS Lambda function that performs CPU-intensive image processing on files uploaded to Amazon S3. The function's timeout is already set to the maximum of 15 minutes, but the function still times out when processing large images. The function currently has 256 MB of memory allocated, and Amazon CloudWatch metrics show the function's CPU utilization consistently maxed out during invocations. The developer wants to reduce processing time without changing the application code. What should the developer do?"
+options:
+    -
+        text: 'Increase the amount of memory allocated to the Lambda function.'
+        correct: true
+    -
+        text: "Increase the Lambda function's reserved concurrency."
+        correct: false
+    -
+        text: 'Enable response streaming on the Lambda function URL.'
+        correct: false
+    -
+        text: 'Move the workload to an Amazon EC2 instance with a larger instance type.'
+        correct: false

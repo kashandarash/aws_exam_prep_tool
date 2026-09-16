@@ -1,0 +1,17 @@
+text: 'A company processes incoming orders using an SQS standard queue consumed by an AWS Lambda function. A small percentage of messages contain malformed data that causes the Lambda function to fail every time it processes them, and these messages are redelivered repeatedly, consuming Lambda invocations without ever succeeding. The company wants to automatically remove these messages from the main queue after a set number of failed attempts and preserve them for later analysis. Which solution meets these requirements?'
+options:
+    -
+        text: 'Configure a dead-letter queue and set a redrive policy on the source queue with a maxReceiveCount, so messages are moved to the DLQ after repeated failures.'
+        correct: true
+    -
+        text: "Reduce the queue's visibility timeout to 0 seconds so failed messages are deleted immediately."
+        correct: false
+    -
+        text: 'Enable server-side encryption on the queue to automatically discard malformed messages.'
+        correct: false
+    -
+        text: "Configure the Lambda function's reserved concurrency to 0 so it stops processing the queue."
+        correct: false
+    -
+        text: "Set the queue's message retention period to 1 minute so malformed messages expire quickly."
+        correct: false

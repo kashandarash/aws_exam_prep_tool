@@ -1,0 +1,17 @@
+text: "A company publishes all order events to a single Amazon SNS topic. Three Lambda functions are subscribed to the topic: one that only needs to process events where OrderType is 'international', one that only needs events where OrderType is 'domestic', and one that needs every event. Currently, all three functions receive every message, and each function contains logic at the start to check the OrderType attribute and immediately return if it doesn't match. The company wants to reduce unnecessary Lambda invocations and cost without creating separate SNS topics. Which solution meets these requirements?"
+options:
+    -
+        text: 'Apply an SNS subscription filter policy on the international and domestic Lambda subscriptions that matches the OrderType message attribute.'
+        correct: true
+    -
+        text: 'Modify the publishing application to publish to a different SNS topic for each OrderType value.'
+        correct: false
+    -
+        text: 'Add an Amazon SQS queue between the SNS topic and each Lambda function to buffer unwanted messages.'
+        correct: false
+    -
+        text: 'Configure reserved concurrency of 0 on each Lambda function to reject non-matching invocations.'
+        correct: false
+    -
+        text: 'Use AWS Lambda destinations to redirect unwanted invocations to a separate function.'
+        correct: false

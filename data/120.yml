@@ -1,0 +1,17 @@
+text: 'A company runs an Amazon RDS for MySQL database, and an application retrieves the database credentials to connect. The security team requires that the database password be rotated automatically every 30 days without requiring any changes to application code or redeployment. Which solution meets these requirements with the LEAST operational overhead?'
+options:
+    -
+        text: 'Store the database credentials in AWS Secrets Manager and configure automatic rotation using the built-in RDS rotation function.'
+        correct: true
+    -
+        text: 'Store the database credentials in AWS Systems Manager Parameter Store as a SecureString parameter and write a custom scheduled AWS Lambda function to update the parameter and the RDS master password every 30 days.'
+        correct: false
+    -
+        text: 'Store the database credentials in an encrypted Amazon S3 object and have the application download and decrypt the object on startup.'
+        correct: false
+    -
+        text: "Store the database credentials in the application's environment variables and have an administrator manually update them every 30 days."
+        correct: false
+    -
+        text: 'Use AWS KMS to generate a new data key every 30 days and use the data key as the RDS master password.'
+        correct: false

@@ -1,0 +1,17 @@
+text: 'A developer created a customer managed AWS KMS key using the default key policy. The developer then created an IAM policy that grants an IAM user in the same AWS account the kms:Decrypt and kms:Encrypt permissions on that key, and attached the policy to the user. When the user attempts to use the key, the calls fail with an access denied error. What is the most likely cause, and how should the developer fix it?'
+options:
+    -
+        text: "The key policy does not grant the account or the user permission to use the key. The developer must update the key's policy to allow the IAM user (or to allow IAM policies in the account to govern access to the key)."
+        correct: true
+    -
+        text: 'IAM users can never be granted permission to use a customer managed KMS key; only IAM roles can be granted key permissions.'
+        correct: false
+    -
+        text: 'The KMS key must first be shared using AWS Resource Access Manager (RAM) before any IAM user in the same account can use it.'
+        correct: false
+    -
+        text: "The IAM policy must reference the key's alias instead of its key ID or key ARN for the permissions to take effect."
+        correct: false
+    -
+        text: 'AWS KMS permissions are controlled only through IAM policies, so the key policy has no effect on whether the call succeeds.'
+        correct: false

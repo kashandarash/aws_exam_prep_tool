@@ -1,0 +1,17 @@
+text: 'A developer is building a serverless application that calls a third-party weather API. The API key rarely changes and does not need automatic rotation, but it must be encrypted at rest, and the solution should minimize ongoing cost. Which approach should the developer use to store and retrieve the API key?'
+options:
+    -
+        text: "Store the API key as a SecureString parameter in AWS Systems Manager Parameter Store, encrypted with an AWS KMS key, and grant the Lambda function's execution role permission to call ssm:GetParameter and kms:Decrypt."
+        correct: true
+    -
+        text: 'Store the API key in AWS Secrets Manager and enable automatic rotation on a fixed schedule.'
+        correct: false
+    -
+        text: 'Store the API key as a plaintext String parameter (not SecureString) in Systems Manager Parameter Store.'
+        correct: false
+    -
+        text: "Store the API key in a public Amazon S3 bucket and restrict access using only the object's URL as the secret."
+        correct: false
+    -
+        text: "Embed the API key directly in the Lambda function's source code so no external lookup is required."
+        correct: false

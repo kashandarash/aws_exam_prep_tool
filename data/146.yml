@@ -1,0 +1,14 @@
+text: "A company runs a critical production application on AWS Elastic Beanstalk. The company wants deployments to keep the application fully available the entire time, and if a new version fails its health checks, Elastic Beanstalk should be able to abandon the deployment and leave the running production instances completely untouched, enabling an instant rollback. The company is willing to pay for temporarily doubling the environment's instance count to get this level of safety. Which Elastic Beanstalk deployment policy should the company choose?"
+options:
+    -
+        text: Immutable
+        correct: true
+    -
+        text: 'All at once'
+        correct: false
+    -
+        text: Rolling
+        correct: false
+    -
+        text: 'Rolling with additional batch'
+        correct: false

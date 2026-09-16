@@ -1,0 +1,17 @@
+text: "A company hosts a private REST API using Amazon API Gateway that is only reachable through an interface VPC endpoint. The company wants to ensure that only requests coming through one specific VPC endpoint are allowed to invoke the API, even though the endpoint's security group allows broad inbound traffic from the VPC. What should the developer do?"
+options:
+    -
+        text: 'Attach a resource policy to the API that allows the execute-api:Invoke action only when the aws:SourceVpce condition key matches the specific VPC endpoint ID.'
+        correct: true
+    -
+        text: "Configure a security group rule on the VPC endpoint that allows traffic only from API Gateway's published IP address range."
+        correct: false
+    -
+        text: 'Create a network ACL rule on the private subnet that denies all inbound traffic except from the API Gateway service.'
+        correct: false
+    -
+        text: 'Enable AWS WAF on the API and add a rule that blocks all public IP addresses.'
+        correct: false
+    -
+        text: "Set the API's authorization type to AWS_IAM only, without configuring a resource policy."
+        correct: false

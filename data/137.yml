@@ -1,0 +1,14 @@
+text: "A company's platform team needs to deploy the same baseline set of resources, such as an IAM role and a logging bucket, into 20 AWS accounts across 4 AWS Regions from a single central management account, and wants to be able to update all of the deployed stacks from that one account in the future. Which AWS CloudFormation feature should the platform team use?"
+options:
+    -
+        text: 'AWS CloudFormation StackSets'
+        correct: true
+    -
+        text: 'Nested stacks'
+        correct: false
+    -
+        text: 'Cross-stack references using exported output values'
+        correct: false
+    -
+        text: 'A single stack with a Mappings section listing each account'
+        correct: false

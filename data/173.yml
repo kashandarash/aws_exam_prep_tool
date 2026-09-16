@@ -1,0 +1,17 @@
+text: "A mobile gaming company wants to display a real-time leaderboard showing the top players ranked by score, and needs to efficiently retrieve a given player's current rank among millions of players with sub-millisecond latency. Which solution meets these requirements?"
+options:
+    -
+        text: "Store each player's score in an Amazon ElastiCache for Redis sorted set, using the score as the sort key, and use the ZRANK/ZREVRANK commands to retrieve rank."
+        correct: true
+    -
+        text: "Store each player's score in an Amazon ElastiCache for Memcached cluster, using the score as the cache key."
+        correct: false
+    -
+        text: "Store each player's score as an item attribute in a DynamoDB table, and scan the table to compute rank on each request."
+        correct: false
+    -
+        text: "Store each player's score in an Amazon RDS table, and run an ORDER BY query with ROW_NUMBER() for each rank lookup."
+        correct: false
+    -
+        text: "Store each player's score in an SQS FIFO queue ordered by score, and poll the queue to determine rank."
+        correct: false

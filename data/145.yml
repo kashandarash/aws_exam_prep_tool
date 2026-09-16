@@ -1,0 +1,17 @@
+text: "A company's AWS CodePipeline pipeline runs in a shared tooling account and must deploy an AWS CloudFormation stack into a separate production AWS account. The pipeline's deploy stage currently fails because it cannot access resources in the production account. What should the developer do to enable this cross-account deployment? (Choose two.)"
+options:
+    -
+        text: "Create an IAM role in the production account that trusts the tooling account and grants the permissions CloudFormation needs, then configure the pipeline's deploy action to assume that role"
+        correct: true
+    -
+        text: "Update the KMS key policy for the pipeline's artifact encryption key to grant the production account permission to use the key"
+        correct: true
+    -
+        text: 'Move the CodePipeline pipeline itself into the production account'
+        correct: false
+    -
+        text: 'Create an IAM user in the production account and store its access keys as plaintext in buildspec.yml'
+        correct: false
+    -
+        text: 'Enable AWS Organizations all-features mode across both accounts'
+        correct: false

@@ -1,0 +1,17 @@
+text: "A company has an internal microservice running on Amazon ECS that needs to call a REST API hosted on Amazon API Gateway. Both the microservice and the API belong to the same company and the same AWS account. The security team requires that only requests signed with valid AWS credentials belonging to the ECS task's IAM role be allowed to invoke the API; no API keys or third-party tokens should be used. Which API Gateway authorization method should the developer configure?"
+options:
+    -
+        text: 'Configure the API methods to use IAM authorization (AWS_IAM), grant the ECS task role an IAM policy allowing execute-api:Invoke on the API, and have the client SDK sign requests using Signature Version 4 (SigV4).'
+        correct: true
+    -
+        text: 'Configure a Cognito user pool authorizer and have the ECS task sign in as a Cognito user before calling the API.'
+        correct: false
+    -
+        text: 'Issue an API key to the ECS service and require the x-api-key header on every request.'
+        correct: false
+    -
+        text: 'Configure a Lambda authorizer that checks a static shared-secret header sent by the ECS task.'
+        correct: false
+    -
+        text: 'Leave the API methods set to NONE (open) authorization and rely on a security group to restrict access.'
+        correct: false

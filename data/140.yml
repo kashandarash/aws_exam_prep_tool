@@ -1,0 +1,14 @@
+text: 'A company runs part of its infrastructure as physical servers in its own data center and wants to use AWS CodeDeploy to deploy application revisions to both its EC2 instances and these on-premises servers using the same deployment process. What must the company do so that AWS CodeDeploy can deploy to the on-premises servers?'
+options:
+    -
+        text: 'Install and configure the CodeDeploy agent on each on-premises server, and register each server as an on-premises instance with AWS CodeDeploy using IAM credentials'
+        correct: true
+    -
+        text: 'Add the on-premises servers to an Auto Scaling group so that CodeDeploy can discover them automatically'
+        correct: false
+    -
+        text: 'Install only the AWS Systems Manager agent on the servers; CodeDeploy deploys to any Systems Manager managed server without further configuration'
+        correct: false
+    -
+        text: 'Create an AWS Direct Connect connection between the data center and AWS so CodeDeploy can reach the servers'
+        correct: false

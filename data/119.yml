@@ -1,0 +1,17 @@
+text: 'A developer needs to store a third-party API key as an AWS Lambda environment variable. Company policy requires that the environment variable be encrypted using a customer managed AWS KMS key that the developer controls, rather than the AWS managed key that Lambda uses by default. What should the developer do to meet this requirement?'
+options:
+    -
+        text: "Configure the Lambda function to use a customer managed KMS key for environment variable encryption, and grant the function's execution role kms:Decrypt permission on that key."
+        correct: true
+    -
+        text: "Store the API key in plaintext as an environment variable and rely on Lambda's default AWS managed key for encryption."
+        correct: false
+    -
+        text: "Use the Lambda console's default encryption helpers without specifying a KMS key, so Lambda continues to use its AWS managed key."
+        correct: false
+    -
+        text: "Store the API key directly in the Lambda function's deployment package as a hardcoded value instead of using an environment variable."
+        correct: false
+    -
+        text: "Create an IAM user with access to a customer managed KMS key and embed that user's access keys in the Lambda function code."
+        correct: false

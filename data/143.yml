@@ -1,0 +1,17 @@
+text: 'Which two deployment types does AWS CodeDeploy support for deploying an application revision to a deployment group? (Choose two.)'
+options:
+    -
+        text: 'In-place deployment'
+        correct: true
+    -
+        text: 'Blue/green deployment'
+        correct: true
+    -
+        text: 'Rolling deployment'
+        correct: false
+    -
+        text: 'Immutable deployment'
+        correct: false
+    -
+        text: 'Canary deployment'
+        correct: false

@@ -1,0 +1,17 @@
+text: "A developer is building an application where multiple users can concurrently edit the same item in a DynamoDB table. Each item has a Version attribute. The developer wants to ensure that an update only succeeds if the item has not been modified by another user since it was last read, and wants a failed update to return an error rather than silently overwrite the other user's change. Which solution meets these requirements?"
+options:
+    -
+        text: 'Use the UpdateItem operation with a ConditionExpression that checks the Version attribute equals the value read by the client, and increment Version on each successful update.'
+        correct: true
+    -
+        text: 'Use the PutItem operation with the ReturnConsumedCapacity parameter set to TOTAL.'
+        correct: false
+    -
+        text: 'Enable DynamoDB Streams and have a separate Lambda function reject updates where the Version attribute is unchanged.'
+        correct: false
+    -
+        text: 'Use the BatchWriteItem operation with strongly consistent reads enabled.'
+        correct: false
+    -
+        text: "Enable DynamoDB auto scaling on the table's write capacity."
+        correct: false

@@ -1,0 +1,17 @@
+text: 'A company is building a REST API using Amazon API Gateway. Client applications authenticate against a third-party OpenID Connect (OIDC) identity provider that is not Amazon Cognito, and API Gateway must validate the resulting token and apply custom authorization logic based on claims in the token before the request reaches the backend. Which solution meets these requirements?'
+options:
+    -
+        text: 'Implement a Lambda authorizer (custom authorizer) that validates the OIDC token and returns an IAM policy document, and configure the REST API to use it for the relevant methods.'
+        correct: true
+    -
+        text: "Configure a Cognito user pool authorizer and add the third-party identity provider directly as a federated provider inside API Gateway's console."
+        correct: false
+    -
+        text: "Set the API method's authorization type to AWS_IAM and require the third-party provider to sign requests with Signature Version 4."
+        correct: false
+    -
+        text: 'Leave the authorization type set to NONE and validate the token independently inside each backend Lambda integration function.'
+        correct: false
+    -
+        text: 'Issue an API Gateway API key (x-api-key) to represent each third-party user and validate claims through the usage plan.'
+        correct: false

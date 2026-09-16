@@ -1,0 +1,14 @@
+text: 'An AWS Elastic Beanstalk environment shows an overall health status of "Degraded" in the console, but basic health monitoring only reports "Degraded" or "Ok" without further explanation. A developer wants detailed, near real-time data, such as the percentage of requests returning 5xx errors, CPU utilization, and the specific cause of each instance''s health change, directly in the Elastic Beanstalk console. What should the developer do?'
+options:
+    -
+        text: 'Enable enhanced health reporting for the environment.'
+        correct: true
+    -
+        text: 'Enable AWS X-Ray active tracing for the environment.'
+        correct: false
+    -
+        text: 'Switch the environment from single-instance to load-balanced.'
+        correct: false
+    -
+        text: 'Create a custom CloudWatch dashboard and manually add the required metrics.'
+        correct: false

@@ -1,0 +1,17 @@
+text: "A company stores sensitive files in several Amazon S3 buckets. A developer recently misconfigured a bucket policy that made a bucket's objects publicly readable. The security team wants to guarantee that no S3 bucket in the AWS account can ever be made publicly accessible, even if a future bucket policy or object ACL is misconfigured. What should the security team do?"
+options:
+    -
+        text: 'Enable S3 Block Public Access at the AWS account level.'
+        correct: true
+    -
+        text: 'Enable Amazon Macie on all S3 buckets to detect when a bucket becomes public.'
+        correct: false
+    -
+        text: 'Create an AWS Config rule that sends a notification whenever a bucket policy becomes public.'
+        correct: false
+    -
+        text: 'Remove the s3:PutBucketPolicy permission from every IAM user and role in the account.'
+        correct: false
+    -
+        text: 'Enable MFA Delete on every S3 bucket in the account.'
+        correct: false

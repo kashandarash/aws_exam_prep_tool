@@ -1,0 +1,14 @@
+text: "A company's release pipeline in AWS CodePipeline automatically builds and deploys every change to a staging environment. Before any release reaches the production environment, the company requires a member of the release management team to manually review and approve it in the AWS Management Console. What should a developer add to the pipeline to satisfy this requirement?"
+options:
+    -
+        text: 'A manual approval action in a stage placed between the staging deployment and the production deployment'
+        correct: true
+    -
+        text: 'An additional AWS CodeBuild stage that runs integration tests before the production stage'
+        correct: false
+    -
+        text: 'An Amazon SNS topic that emails the release management team after each deployment completes'
+        correct: false
+    -
+        text: 'A CodeDeploy deployment group configured with a manual deployment trigger'
+        correct: false

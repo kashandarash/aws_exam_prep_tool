@@ -1,0 +1,14 @@
+text: 'A company exposes a Lambda function through an Amazon API Gateway REST API. The Lambda function performs a long-running data export that can take up to two minutes to complete. Clients calling the API intermittently receive an HTTP 504 "Endpoint request timed out" error. A developer confirms the Lambda function itself always completes successfully within its own configured timeout. What is the MOST likely cause, and how should the developer resolve it?'
+options:
+    -
+        text: 'API Gateway integration requests time out after 29 seconds and this limit cannot be increased for the synchronous call; the developer should redesign the API to invoke the Lambda function asynchronously and have the client poll for the result.'
+        correct: true
+    -
+        text: "The Lambda function's reserved concurrency is set too low; the developer should increase it."
+        correct: false
+    -
+        text: "The API Gateway stage's throttling burst limit is too low; the developer should raise it."
+        correct: false
+    -
+        text: "The Lambda function's execution role is missing the apigateway:InvokeFunction permission."
+        correct: false

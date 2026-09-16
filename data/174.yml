@@ -1,0 +1,17 @@
+text: "A developer is building a serverless application in which an AWS Lambda function connects to an Amazon RDS for MySQL database. The company's security policy prohibits storing long-lived database passwords in Lambda environment variables or application code, and requires that database credentials automatically expire after a short period. Which solution meets these requirements with the LEAST operational overhead?"
+options:
+    -
+        text: "Enable IAM database authentication on the RDS instance, grant the Lambda function's execution role permission to connect, and have the function generate a short-lived authentication token using the RDS Signer before connecting."
+        correct: true
+    -
+        text: 'Store the database password in a Lambda environment variable encrypted with an AWS KMS key.'
+        correct: false
+    -
+        text: "Hardcode the database password in the Lambda function's source code and rotate it manually every 90 days."
+        correct: false
+    -
+        text: 'Store the database password in an Amazon S3 bucket with server-side encryption and have the function read it at startup.'
+        correct: false
+    -
+        text: "Create an IAM user with programmatic access and embed its access key and secret key in the function's deployment package."
+        correct: false

@@ -1,0 +1,14 @@
+text: 'A developer is writing a buildspec.yml file for an AWS CodeBuild project that needs a database password during the build. The password is stored in AWS Secrets Manager, and the developer must make it available to the build as an environment variable without ever exposing the plaintext value in the CodeBuild project configuration or in source control. What should the developer do?'
+options:
+    -
+        text: 'In the buildspec.yml env section, define the variable under secrets-manager and reference the secret by its name or ARN, for example DB_PASSWORD: my-secret:password'
+        correct: true
+    -
+        text: 'Store the password as a plaintext value under the env/variables section of buildspec.yml'
+        correct: false
+    -
+        text: 'Copy the secret from Secrets Manager into a file in an S3 bucket and have the buildspec download the file during the install phase'
+        correct: false
+    -
+        text: "Pass the password as a plaintext command-line argument to the build command in the buildspec's build phase"
+        correct: false

@@ -1,0 +1,17 @@
+text: 'A media company must retain application log files in an S3 bucket for compliance purposes for exactly 7 years, after which they should be permanently deleted. The logs are accessed frequently for the first 90 days for troubleshooting purposes and are rarely, if ever, accessed afterward. Which S3 Lifecycle configuration is the MOST cost-effective way to meet these requirements?'
+options:
+    -
+        text: 'Transition objects to S3 Standard-IA after 30 days, transition to S3 Glacier Flexible Retrieval after 90 days, and expire (delete) objects after 2,555 days.'
+        correct: true
+    -
+        text: 'Transition objects to S3 One Zone-IA immediately after upload, and never expire them.'
+        correct: false
+    -
+        text: 'Transition objects to S3 Intelligent-Tiering immediately after upload, and expire objects after 90 days.'
+        correct: false
+    -
+        text: 'Keep all objects in the S3 Standard storage class and configure S3 Object Lock in compliance mode for 7 years.'
+        correct: false
+    -
+        text: 'Transition objects to S3 Glacier Deep Archive immediately after upload, and expire objects after 2,555 days.'
+        correct: false

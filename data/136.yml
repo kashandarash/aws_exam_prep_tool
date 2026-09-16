@@ -1,0 +1,14 @@
+text: "A developer's AWS CloudFormation template provisions an Amazon RDS DB instance as part of an application stack. The developer wants to make sure that if the CloudFormation stack is ever deleted, the RDS DB instance is preserved instead of being deleted along with the rest of the stack. What should the developer add to the template?"
+options:
+    -
+        text: 'Set the DeletionPolicy attribute of the RDS DB instance resource to Retain'
+        correct: true
+    -
+        text: 'Enable termination protection on the CloudFormation stack'
+        correct: false
+    -
+        text: "Set the RDS instance's DeleteAutomatedBackups property to false"
+        correct: false
+    -
+        text: 'Move the RDS DB instance into a separate nested stack'
+        correct: false

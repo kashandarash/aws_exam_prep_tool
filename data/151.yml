@@ -1,0 +1,14 @@
+text: 'A developer enabled AWS X-Ray tracing for a high-traffic web application. Reviewing the X-Ray console, the developer notices that only a small percentage of requests are being traced, which makes it hard to catch intermittent errors. The default sampling rule is in effect: one request per second, plus 5% of any additional requests. The developer wants to trace a larger share of requests without modifying any application code. What should the developer do?'
+options:
+    -
+        text: 'Create a custom X-Ray sampling rule with a higher reservoir size and fixed rate.'
+        correct: true
+    -
+        text: 'Install an additional X-Ray daemon on each host to double the sampling rate.'
+        correct: false
+    -
+        text: "Increase the memory allocated to the application's Lambda functions."
+        correct: false
+    -
+        text: 'Enable AWS CloudTrail data events for the application.'
+        correct: false

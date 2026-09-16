@@ -1,0 +1,17 @@
+text: 'A mobile application allows users to upload profile photos directly from their devices to a private S3 bucket. The company does not want to embed AWS credentials in the mobile app or proxy the file uploads through backend servers, but does want each user to be able to upload only to their own designated object key for a short time window. Which solution meets these requirements?'
+options:
+    -
+        text: "Have the backend generate a presigned URL for a PutObject request scoped to the user's object key with a short expiration, and return it to the mobile app to upload directly to S3."
+        correct: true
+    -
+        text: "Create an IAM user for each mobile app user and embed that user's access key and secret key in the mobile app."
+        correct: false
+    -
+        text: "Configure the S3 bucket policy to allow anonymous PutObject requests from the mobile app's IP address range."
+        correct: false
+    -
+        text: 'Have the mobile app assume an IAM role using AWS STS AssumeRole with no session policy and upload directly to the bucket root.'
+        correct: false
+    -
+        text: "Enable S3 Transfer Acceleration on the bucket and have the mobile app upload using the bucket's default endpoint with no additional authorization."
+        correct: false

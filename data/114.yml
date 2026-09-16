@@ -1,0 +1,17 @@
+text: |-
+    An AWS Lambda function is configured as the event destination for an Amazon S3 bucket's ObjectCreated event notifications, so S3 invokes the function asynchronously whenever a new object is uploaded. Occasionally, the function fails to process an object even after Lambda's automatic retries, and the event is currently discarded with no way to inspect or reprocess it. A developer needs a way to capture these events after retries are exhausted so the team can investigate and, if needed, reprocess them, with the least additional infrastructure.
+
+    What should the developer do?
+options:
+    -
+        text: 'Configure a dead-letter queue, backed by an Amazon SQS queue, on the Lambda function so that events which fail all retry attempts are sent to the queue for later inspection and reprocessing.'
+        correct: true
+    -
+        text: "Increase the Lambda function's timeout setting so that the function has more time to succeed before Lambda considers the invocation a failure."
+        correct: false
+    -
+        text: "Configure Lambda's automatic retry count to an unlimited number of attempts so that the function eventually succeeds."
+        correct: false
+    -
+        text: "Use CloudWatch Logs Insights to periodically search the function's log group for error messages after the fact."
+        correct: false

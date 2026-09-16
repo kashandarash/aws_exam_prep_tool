@@ -1,0 +1,17 @@
+text: "A company's order-processing application must notify three independent downstream systems (billing, shipping, and inventory) whenever a new order is placed. Each system processes orders at its own pace and must not lose any orders if it is temporarily unavailable. Which architecture meets these requirements with the LEAST amount of custom code?"
+options:
+    -
+        text: 'Publish each order to an Amazon SNS topic, and subscribe one SQS queue per downstream system to the topic.'
+        correct: true
+    -
+        text: 'Publish each order directly to three separate SQS queues from the order-processing application.'
+        correct: false
+    -
+        text: 'Publish each order to a single SQS queue, and have all three downstream systems poll the same queue.'
+        correct: false
+    -
+        text: 'Publish each order to an Amazon SNS topic with each downstream system subscribed directly by HTTPS endpoint.'
+        correct: false
+    -
+        text: 'Write each order to an S3 bucket and configure each downstream system to poll the bucket every minute.'
+        correct: false

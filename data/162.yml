@@ -1,0 +1,17 @@
+text: "A retail company stores order data in a DynamoDB table with OrderId as the partition key. The application currently looks up orders only by OrderId, but a new requirement is to let customer service representatives query all orders placed by a specific CustomerEmail, a frequently changing, high-cardinality attribute that is not part of the table's primary key. Which solution meets this requirement with the LEAST impact on the existing table and application?"
+options:
+    -
+        text: 'Create a global secondary index on the table with CustomerEmail as the partition key.'
+        correct: true
+    -
+        text: 'Create a local secondary index on the table with CustomerEmail as the sort key.'
+        correct: false
+    -
+        text: "Change the table's primary key to a composite key of CustomerEmail and OrderId."
+        correct: false
+    -
+        text: 'Export the table to Amazon S3 and use Amazon Athena to query by CustomerEmail.'
+        correct: false
+    -
+        text: 'Enable a DynamoDB Accelerator (DAX) cluster in front of the table to cache queries by CustomerEmail.'
+        correct: false

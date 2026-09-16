@@ -1,0 +1,17 @@
+text: "A company's Account A runs an application that uses a customer managed AWS KMS key to encrypt objects it writes to an Amazon S3 bucket. An application running in a separate Account B needs to decrypt and read those same objects using an IAM role in Account B. What must the company do to allow the IAM role in Account B to use the KMS key in Account A? (Choose two.)"
+options:
+    -
+        text: "Update the KMS key's key policy in Account A to grant the necessary kms:Decrypt permissions to the IAM role's ARN or to Account B."
+        correct: true
+    -
+        text: 'Attach an IAM policy to the role in Account B that grants permission to use the specific KMS key ARN in Account A.'
+        correct: true
+    -
+        text: 'Copy the KMS key from Account A into Account B using the AWS CLI so each account has its own independent copy of the key.'
+        correct: false
+    -
+        text: "Make the S3 bucket in Account A fully public so Account B's role can read the objects without any additional permissions."
+        correct: false
+    -
+        text: "Grant Account B's role the AWS managed AdministratorAccess policy so it inherits access to all KMS keys in every account."
+        correct: false

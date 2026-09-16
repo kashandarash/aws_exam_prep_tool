@@ -1,0 +1,17 @@
+text: |-
+    A single-page web application hosted at https://app.example.com calls a REST API built with Amazon API Gateway and AWS Lambda at https://api.example.com. When the browser's JavaScript code calls the API using the Fetch API, the browser blocks the response and the console shows a cross-origin resource sharing (CORS) error, even though calling the same endpoint directly with curl returns a successful response. The developer needs the browser-based calls to succeed.
+
+    What should the developer do?
+options:
+    -
+        text: 'Enable CORS on the affected API Gateway resource so that an OPTIONS method is added to handle preflight requests, configure the actual methods to return the Access-Control-Allow-Origin header (and other required CORS headers) in their responses, and redeploy the API.'
+        correct: true
+    -
+        text: "Add the web application's domain, app.example.com, to the Lambda function's resource-based policy so that it is allowed to invoke the function."
+        correct: false
+    -
+        text: 'Create an AWS WAF web ACL with a rule that allows requests originating from app.example.com, and associate it with the API Gateway stage.'
+        correct: false
+    -
+        text: 'Add a CORS configuration to an Amazon S3 bucket policy, since S3 is responsible for enforcing cross-origin restrictions on the API.'
+        correct: false

@@ -1,0 +1,17 @@
+text: |-
+    A company's security policy requires that sensitive configuration values passed to an AWS Lambda function as environment variables be encrypted at rest using a KMS key that the company fully controls, including the key's rotation schedule, access policy, and audit trail through AWS CloudTrail. The Lambda function's environment variables are currently encrypted using the default AWS managed key (aws/lambda). A developer must meet the new requirement with the least amount of change to the function's code.
+
+    What should the developer do?
+options:
+    -
+        text: 'Create a customer managed key in AWS KMS, and configure the Lambda function to use that key to encrypt its environment variables at rest instead of the default AWS managed key.'
+        correct: true
+    -
+        text: "Write application code that calls the KMS Encrypt API to encrypt each environment variable's value before deployment, using the default AWS managed key, and decrypt it at the start of every invocation."
+        correct: false
+    -
+        text: 'Move all environment variable values into the deployment package as a plaintext configuration file, and encrypt the entire deployment package .zip file using a customer managed key before uploading it.'
+        correct: false
+    -
+        text: "Disable environment variable encryption for the function, and restrict access to the function's configuration using an IAM policy instead."
+        correct: false

@@ -1,0 +1,14 @@
+text: 'A developer runs AWS CLI commands from an on-premises virtual machine that was recently restored from an old snapshot. Every AWS CLI command now fails with a "SignatureDoesNotMatch" or "RequestTimeTooSkewed" error, even though the same IAM credentials work correctly when used from another machine. What is the MOST likely cause of this error?'
+options:
+    -
+        text: "The virtual machine's system clock is out of sync with the actual time, so the request signature's timestamp falls outside the accepted window."
+        correct: true
+    -
+        text: "The IAM user's access key was automatically deactivated when the snapshot was restored."
+        correct: false
+    -
+        text: 'The AWS CLI is configured to use an AWS Region that does not support Signature Version 4.'
+        correct: false
+    -
+        text: 'The virtual machine does not have outbound network access to AWS STS.'
+        correct: false

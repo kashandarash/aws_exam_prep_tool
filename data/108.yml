@@ -1,0 +1,17 @@
+text: |-
+    A company has ten AWS Lambda functions that all depend on the same internal logging and metrics library. Currently, each function's deployment package includes its own copy of the library's code. Whenever the library is updated, a developer must rebuild and redeploy all ten functions individually, which is time-consuming and error-prone. The company wants a way to update the shared library in one place and have all ten functions automatically use the updated code the next time they are deployed, with minimal operational overhead.
+
+    What should the developer do?
+options:
+    -
+        text: 'Package the shared library as an AWS Lambda layer, publish a new layer version whenever the library changes, and reference that layer from each of the ten functions.'
+        correct: true
+    -
+        text: "Store the library's code as an object in Amazon S3, and have each function download and load the library into its execution environment at the start of every invocation."
+        correct: false
+    -
+        text: 'Convert all ten functions into a single monolithic Lambda function that contains the logic of all ten functions plus the shared library, invoked with different event payloads.'
+        correct: false
+    -
+        text: "Publish the library to a private package repository, and configure each function's CI/CD pipeline to install the latest version of the library and rebuild the deployment package before every deployment."
+        correct: false

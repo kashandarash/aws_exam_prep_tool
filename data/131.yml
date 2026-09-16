@@ -1,0 +1,17 @@
+text: "A company requires that IAM users in a specific group be able to call AWS APIs only when connecting from the company's corporate office IP range, 203.0.113.0/24. All other requests from those users, regardless of which AWS credentials are used, must be denied. Which IAM policy statement should the security team attach to the group to enforce this?"
+options:
+    -
+        text: "A Deny statement with Action set to '*', Resource set to '*', and a Condition that evaluates NotIpAddress on the aws:SourceIp key against 203.0.113.0/24."
+        correct: true
+    -
+        text: "An Allow statement with Action set to '*', Resource set to '*', and a Condition that evaluates IpAddress on the aws:SourceIp key against 203.0.113.0/24, with no explicit Deny elsewhere."
+        correct: false
+    -
+        text: "A Deny statement with a Condition that evaluates StringEquals on the aws:UserAgent key against the corporate network's proxy user agent string."
+        correct: false
+    -
+        text: 'An IAM permissions boundary that lists 203.0.113.0/24 as an allowed principal ARN.'
+        correct: false
+    -
+        text: 'A resource-based policy attached to the AWS account root user that restricts the account sign-in page to the corporate IP range.'
+        correct: false

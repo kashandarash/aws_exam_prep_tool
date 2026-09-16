@@ -1,0 +1,17 @@
+text: |-
+    A company is building a REST API using Amazon API Gateway and AWS Lambda. Client applications authenticate against the company's existing on-premises identity provider, which is not Amazon Cognito, and each request to the API includes a bearer token issued by that identity provider in the Authorization header. The company wants to centrally validate this token and control access to multiple API Gateway methods, without adding authentication logic to each individual backend Lambda function, and wants API Gateway to cache the authorization result for a configurable period to avoid re-validating the same token on every request.
+
+    Which solution meets these requirements?
+options:
+    -
+        text: 'Create a TOKEN type AWS Lambda authorizer that validates the bearer token against the identity provider, attach it to the required API Gateway methods, and configure an authorization caching TTL.'
+        correct: true
+    -
+        text: "Create an Amazon Cognito user pool authorizer and configure the API Gateway methods to require it, since the identity provider's tokens will automatically be accepted."
+        correct: false
+    -
+        text: 'Enable AWS_IAM authorization on the required API Gateway methods so that requests are authenticated using AWS Signature Version 4.'
+        correct: false
+    -
+        text: 'Add validation logic for the bearer token to the beginning of every backend Lambda function so that each function independently authorizes its own requests.'
+        correct: false

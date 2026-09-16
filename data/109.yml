@@ -1,0 +1,17 @@
+text: |-
+    A REST API backed by AWS Lambda receives a high volume of requests, a significant portion of which are malformed and missing required fields such as email or orderId. Currently, the Lambda function performs this validation at the start of every invocation and returns an HTTP 400 response for invalid requests, but the company still incurs a Lambda invocation charge and cold-start latency for every malformed request, since the function is invoked before the validation runs. The company wants malformed requests to be rejected before they reach the Lambda function, without adding a new service in front of API Gateway.
+
+    Which solution meets these requirements?
+options:
+    -
+        text: 'Create a request validator and a JSON schema model in API Gateway, and configure the API method to validate the request body and required parameters against the model, rejecting invalid requests with an HTTP 400 response before the Lambda function is invoked.'
+        correct: true
+    -
+        text: 'Enable response caching on the API Gateway stage so that repeated malformed requests are served from the cache instead of invoking the Lambda function.'
+        correct: false
+    -
+        text: 'Attach an AWS WAF web ACL with a rate-based rule to the API Gateway stage to block requests that are missing required fields.'
+        correct: false
+    -
+        text: 'Create a Lambda authorizer that inspects the request body for required fields and denies the request if any are missing.'
+        correct: false

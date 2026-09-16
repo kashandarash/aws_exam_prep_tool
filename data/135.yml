@@ -1,0 +1,14 @@
+text: "A developer maintains a production AWS CloudFormation stack. Before applying an update to the stack's template, the developer wants to see exactly which resources will be modified, replaced, or deleted, so that any resource that would be unintentionally replaced can be caught before the update actually runs. What should the developer do?"
+options:
+    -
+        text: 'Create and review a change set for the stack update before executing it'
+        correct: true
+    -
+        text: 'Enable termination protection on the stack'
+        correct: false
+    -
+        text: 'Enable drift detection on the stack'
+        correct: false
+    -
+        text: 'Attach a stack policy that denies updates to all resources in the stack'
+        correct: false

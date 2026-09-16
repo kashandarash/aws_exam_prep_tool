@@ -1,0 +1,17 @@
+text: "A company uses an SQS standard queue to decouple a web application from a fleet of worker EC2 instances that process orders. Each order can take up to 5 minutes to process. Workers report that some orders are being processed more than once by different workers even though no worker has crashed. The queue's visibility timeout is currently set to 30 seconds. What should the developer do to resolve this issue?"
+options:
+    -
+        text: "Increase the queue's visibility timeout to be longer than the maximum time it takes a worker to process and delete a message."
+        correct: true
+    -
+        text: 'Convert the standard queue to an SNS topic and have each worker subscribe independently.'
+        correct: false
+    -
+        text: "Decrease the queue's message retention period to 30 seconds so stale messages expire sooner."
+        correct: false
+    -
+        text: 'Enable long polling on the queue by setting ReceiveMessageWaitTimeSeconds to 20 seconds.'
+        correct: false
+    -
+        text: 'Increase the DelaySeconds parameter on the queue to delay delivery of new messages.'
+        correct: false

@@ -1,0 +1,17 @@
+text: 'A company uses AWS Organizations with a separate AWS account for each environment. Developers in the Development account need to deploy AWS CloudFormation stacks into the Production account using their existing IAM identities, without creating or distributing any long-term access keys in the Production account. Which approach meets these requirements?'
+options:
+    -
+        text: 'In the Production account, create an IAM role with the required permissions and a trust policy that allows principals from the Development account to assume it. Developers use sts:AssumeRole, or an AWS CLI profile configured with role_arn and source_profile, to obtain temporary credentials.'
+        correct: true
+    -
+        text: 'Create an IAM user in the Production account for each developer and share the generated access keys with the Development account team.'
+        correct: false
+    -
+        text: "Enable the Production account's root user credentials and share them with the development team for deployments."
+        correct: false
+    -
+        text: "Create a bucket policy on an S3 bucket in the Production account that grants the Development account's IAM users direct access to CloudFormation."
+        correct: false
+    -
+        text: 'Ask AWS Support to merge the permission boundaries of the two accounts so developers can act in either account interchangeably.'
+        correct: false

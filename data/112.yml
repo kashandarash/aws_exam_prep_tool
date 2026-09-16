@@ -1,0 +1,17 @@
+text: |-
+    A serverless workflow built with AWS Step Functions includes a task state that invokes an AWS Lambda function, which calls a third-party payment API. The third-party API occasionally times out due to transient network issues. The company wants the state machine to automatically retry the task up to three times, waiting longer between each attempt, when this specific timeout error occurs. If all retries fail, the workflow should not fail outright; instead, it should transition to a separate state that sends a notification and marks the order for manual review.
+
+    Which combination of Amazon States Language fields should the developer add to the task state to meet these requirements?
+options:
+    -
+        text: 'A Retry field that matches the timeout error and specifies MaxAttempts and BackoffRate, combined with a Catch field that matches the same error and transitions to the notification state after retries are exhausted.'
+        correct: true
+    -
+        text: "A Parameters field that lowers the Lambda function's timeout, combined with a Choice state placed immediately after the task to detect failures."
+        correct: false
+    -
+        text: 'A dead-letter queue configuration on the Lambda function, combined with an Amazon SQS trigger that re-invokes the state machine whenever a message arrives in the queue.'
+        correct: false
+    -
+        text: "A Wait state placed before the task with a fixed delay, combined with setting the state machine's type to Express Workflow."
+        correct: false

@@ -1,0 +1,17 @@
+text: 'A developer is building a desktop application that uploads large video files (several gigabytes each) from users on unreliable home internet connections to an S3 bucket. Users report that uploads frequently fail partway through and must restart from the beginning, wasting time and bandwidth. Which solution should the developer implement to make the uploads more resilient to network interruptions?'
+options:
+    -
+        text: 'Use the S3 multipart upload API to split each file into parts, upload the parts independently, and retry only the parts that fail.'
+        correct: true
+    -
+        text: "Increase the S3 bucket's default request timeout setting to prevent uploads from failing."
+        correct: false
+    -
+        text: 'Enable S3 Versioning on the bucket so that a new version is created each time an upload restarts.'
+        correct: false
+    -
+        text: 'Compress each video file before uploading to reduce the total number of bytes transferred.'
+        correct: false
+    -
+        text: 'Use the CopyObject API to upload the file in a single atomic operation.'
+        correct: false

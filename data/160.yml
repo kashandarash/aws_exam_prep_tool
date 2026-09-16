@@ -1,0 +1,14 @@
+text: "A company wants to detect a specific error pattern in an application's CloudWatch Logs as soon as it occurs and automatically trigger a Lambda function to send a Slack notification, instead of periodically running CloudWatch Logs Insights queries. What should the developer configure?"
+options:
+    -
+        text: 'A CloudWatch Logs subscription filter on the log group that forwards matching log events to the Lambda function in near real time.'
+        correct: true
+    -
+        text: 'A scheduled Amazon EventBridge rule that invokes the Lambda function every minute to scan the log group.'
+        correct: false
+    -
+        text: 'An S3 event notification on a bucket that the logs are periodically exported to.'
+        correct: false
+    -
+        text: 'A CloudWatch Logs metric filter with an alarm whose INSUFFICIENT_DATA action points to the Lambda function.'
+        correct: false

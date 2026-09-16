@@ -1,0 +1,14 @@
+text: "A DynamoDB table configured with provisioned throughput has a global secondary index (GSI) that supports a different query pattern than the base table. During a load test, CloudWatch shows elevated WriteThrottleEvents and the application's writes are being throttled, even though the base table's ConsumedWriteCapacityUnits stays well below its ProvisionedWriteCapacityUnits. What is the MOST likely cause, and how should the developer fix it?"
+options:
+    -
+        text: "The GSI has its own provisioned write capacity that is too low for the write volume; the developer should increase the GSI's provisioned write capacity (or switch the table to on-demand capacity mode)."
+        correct: true
+    -
+        text: "The base table's partition key has too many distinct values, causing hot partitions on the base table itself."
+        correct: false
+    -
+        text: 'DynamoDB Streams is not enabled on the table, so writes cannot be propagated to the index.'
+        correct: false
+    -
+        text: "The application's write requests are missing a ConsistentRead parameter."
+        correct: false

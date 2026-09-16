@@ -1,0 +1,17 @@
+text: |-
+    A retail application stores product inventory counts as items in an Amazon DynamoDB table. Multiple application servers can read and update the same inventory item at nearly the same time. The company has observed that when two servers read the same item, independently modify it, and write it back, one server's update silently overwrites the other's, resulting in an incorrect inventory count (a lost update). A developer needs to prevent a write from succeeding if the item has changed since it was last read by that server, without introducing a separate locking service.
+
+    Which approach should the developer use?
+options:
+    -
+        text: 'Add a numeric version attribute to each item. When updating an item, include a ConditionExpression that the version attribute still equals the value that was read, and increment the version as part of the update; if the condition fails, catch the resulting exception and retry with the latest data.'
+        correct: true
+    -
+        text: 'Enable DynamoDB auto scaling on the table so that write capacity increases automatically whenever concurrent writes are detected.'
+        correct: false
+    -
+        text: "Create a global secondary index on the inventory item's primary key so that DynamoDB serializes all writes to the item through the index."
+        correct: false
+    -
+        text: 'Enable point-in-time recovery on the table so that any item that gets overwritten by a concurrent write can be restored afterward.'
+        correct: false

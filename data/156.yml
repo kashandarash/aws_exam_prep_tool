@@ -1,0 +1,14 @@
+text: "A Lambda function is configured to run inside the private subnets of a VPC so that it can access an Amazon RDS database. The function's code also calls DynamoDB using the AWS SDK, but every call to DynamoDB times out. The private subnets have no route to a NAT gateway or internet gateway. What should the developer do to let the Lambda function reach DynamoDB while keeping it in the private subnets?"
+options:
+    -
+        text: "Create a gateway VPC endpoint for DynamoDB and add a route to it in the private subnets' route table."
+        correct: true
+    -
+        text: 'Attach an internet gateway directly to the private subnets.'
+        correct: false
+    -
+        text: 'Move the DynamoDB table into the same VPC as the Lambda function.'
+        correct: false
+    -
+        text: "Increase the Lambda function's timeout so the DynamoDB request has more time to succeed."
+        correct: false

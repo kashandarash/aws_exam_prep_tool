@@ -1,0 +1,17 @@
+text: 'A company runs an application that stores customer orders in a DynamoDB table. The company wants to send an email notification to the fulfillment team immediately whenever a new order item is inserted into the table, without modifying the application code that writes the orders. Which solution meets these requirements with the LEAST development effort?'
+options:
+    -
+        text: 'Enable DynamoDB Streams on the table, configure it to invoke an AWS Lambda function on new records, and have the function publish a notification through Amazon SNS.'
+        correct: true
+    -
+        text: 'Modify the application to publish an Amazon SNS notification immediately after it writes each order to DynamoDB.'
+        correct: false
+    -
+        text: 'Schedule an Amazon EventBridge rule to scan the DynamoDB table every minute and publish new items to SNS.'
+        correct: false
+    -
+        text: "Configure Amazon CloudWatch to monitor the table's WriteThrottleEvents metric and trigger an alarm that publishes to SNS."
+        correct: false
+    -
+        text: 'Enable AWS CloudTrail data events for the table and create an EventBridge rule that matches PutItem API calls.'
+        correct: false

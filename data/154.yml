@@ -1,0 +1,14 @@
+text: 'A production application writes detailed request logs to several Amazon CloudWatch Logs log groups, one per microservice. After a customer-reported incident, a developer needs to quickly search across all of these log groups for a specific error message and correlate it by request ID within the last hour, without exporting the logs or writing a custom parsing script. What should the developer use?'
+options:
+    -
+        text: 'CloudWatch Logs Insights to run a query across the relevant log groups.'
+        correct: true
+    -
+        text: 'Amazon Athena queries against an S3 access log bucket.'
+        correct: false
+    -
+        text: 'AWS CloudTrail Insights to detect unusual API activity.'
+        correct: false
+    -
+        text: 'A CloudWatch Contributor Insights rule created after the incident occurred.'
+        correct: false

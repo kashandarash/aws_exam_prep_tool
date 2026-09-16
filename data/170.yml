@@ -1,0 +1,17 @@
+text: 'An online ticket-booking company processes seat reservation requests through an SQS queue consumed by a fleet of workers. The company has found that occasionally two workers process reservation requests for the same seat out of order, resulting in double bookings. The company needs to guarantee that messages for a given event ID are processed exactly once and in the exact order they were sent. Which solution meets these requirements?'
+options:
+    -
+        text: 'Replace the standard queue with an SQS FIFO queue, and use the event ID as the message group ID.'
+        correct: true
+    -
+        text: 'Increase the number of worker instances consuming the standard queue to process messages faster.'
+        correct: false
+    -
+        text: 'Enable long polling on the standard queue to reduce the number of empty receives.'
+        correct: false
+    -
+        text: 'Configure the standard queue with a higher visibility timeout to prevent concurrent processing.'
+        correct: false
+    -
+        text: 'Use Amazon SNS instead of SQS so that messages are delivered to workers in publish order.'
+        correct: false

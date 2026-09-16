@@ -1,0 +1,14 @@
+text: 'A developer enables AWS X-Ray active tracing on a Lambda function and adds X-Ray SDK calls to the code, but no traces ever appear in the X-Ray console. CloudWatch Logs for the function show no errors from the X-Ray SDK itself. What is the MOST likely cause?'
+options:
+    -
+        text: "The Lambda function's execution role does not include the permissions in the AWSXRayDaemonWriteAccess policy (xray:PutTraceSegments and xray:PutTelemetryRecords)."
+        correct: true
+    -
+        text: 'The X-Ray daemon is not installed in the Lambda execution environment.'
+        correct: false
+    -
+        text: "The function's memory allocation is below 512 MB, which disables tracing."
+        correct: false
+    -
+        text: 'X-Ray sampling rules default to 0% for Lambda functions until a custom rule is created.'
+        correct: false

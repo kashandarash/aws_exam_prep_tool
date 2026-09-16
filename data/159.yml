@@ -1,0 +1,14 @@
+text: "A Lambda function that previously worked correctly begins failing with an AccessDeniedException whenever it tries to write objects to an S3 bucket, immediately after a developer updated only the function's code (no infrastructure or IAM changes were made). CloudWatch Logs show the exception is thrown by the AWS SDK call itself, and the function otherwise executes without errors. What is the MOST likely cause?"
+options:
+    -
+        text: "The Lambda function's execution role does not have an IAM policy granting s3:PutObject permission on the target bucket."
+        correct: true
+    -
+        text: 'The Lambda function has exceeded its concurrent execution limit.'
+        correct: false
+    -
+        text: 'S3 Transfer Acceleration is not enabled on the bucket.'
+        correct: false
+    -
+        text: 'The Lambda function is missing a resource-based policy allowing S3 to invoke it.'
+        correct: false

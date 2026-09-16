@@ -1,0 +1,17 @@
+text: |-
+    A developer has written an AWS Lambda function that downloads a media file from Amazon S3 to the function's /tmp directory, transcodes it, and uploads the result back to S3. The files being processed can be up to 8 GB in size. The function fails with a 'no space left on device' error because the default /tmp storage size of 512 MB is too small. The developer wants to fix this with the smallest possible change to the function's configuration, without redesigning the function to stream the file instead of writing it to disk.
+
+    What should the developer do?
+options:
+    -
+        text: "Increase the function's configured ephemeral storage (/tmp) size, up to the maximum of 10,240 MB."
+        correct: true
+    -
+        text: "Increase the function's memory allocation, which automatically increases the size of /tmp to match."
+        correct: false
+    -
+        text: 'Mount an Amazon EFS file system to the function and write the temporary files there instead of to /tmp.'
+        correct: false
+    -
+        text: 'Split the file into multiple smaller Amazon S3 objects using multipart upload before the function begins processing it.'
+        correct: false

@@ -1,0 +1,14 @@
+text: "A developer created a CloudWatch alarm that monitors the Errors metric for a Lambda function and notifies an SNS topic when the sum of errors over a 5-minute period exceeds a threshold. During a recent outage, the function's trigger stopped invoking it entirely, so no data points were published for the Errors metric, and the alarm never entered the ALARM state even though the developer wanted to be notified whenever the function stopped reporting healthy data. What should the developer change on the alarm?"
+options:
+    -
+        text: "Configure the alarm's missing-data treatment to treat missing data as breaching, instead of the default."
+        correct: true
+    -
+        text: "Decrease the alarm's evaluation period from 5 minutes to 1 minute."
+        correct: false
+    -
+        text: "Change the alarm's statistic from Sum to Average."
+        correct: false
+    -
+        text: 'Add a second alarm action that publishes to an Amazon SQS queue.'
+        correct: false

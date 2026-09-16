@@ -1,0 +1,17 @@
+text: "A company stores financial records in an Amazon S3 bucket. The security team requires that every object uploaded to the bucket be encrypted with AWS KMS (SSE-KMS) at the time it is written, and that any PutObject request that does not specify SSE-KMS encryption be rejected outright, regardless of which client or IAM principal is uploading. Enabling the bucket's default encryption setting alone does not satisfy this requirement because it does not reject unencrypted requests. What should the developer add to meet this requirement?"
+options:
+    -
+        text: 'A bucket policy statement that denies s3:PutObject unless the request includes the x-amz-server-side-encryption header with a value of aws:kms.'
+        correct: true
+    -
+        text: 'An S3 Lifecycle rule that deletes any object that was not encrypted with SSE-KMS 30 days after it was uploaded.'
+        correct: false
+    -
+        text: 'An IAM policy attached only to the Developers group that requires the x-amz-server-side-encryption header on requests from that group.'
+        correct: false
+    -
+        text: 'Enable S3 Versioning so that unencrypted versions of an object are automatically replaced with encrypted versions.'
+        correct: false
+    -
+        text: 'Enable Amazon Macie to automatically re-encrypt any object that is uploaded without SSE-KMS.'
+        correct: false

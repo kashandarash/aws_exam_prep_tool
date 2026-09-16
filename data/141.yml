@@ -1,0 +1,14 @@
+text: 'A web application running in an AWS Elastic Beanstalk web server environment needs to perform long-running image-processing jobs whenever a user uploads a file. The developer wants the web tier to stay responsive by handing these jobs off to a separate fleet of instances that pull jobs from a queue and process them asynchronously, without writing custom polling or queue-management code. What should the developer do?'
+options:
+    -
+        text: 'Create an Elastic Beanstalk worker environment tier, which provisions and reads from an Amazon SQS queue automatically'
+        correct: true
+    -
+        text: "Increase the maximum size of the web environment's Auto Scaling group so it can absorb the extra load"
+        correct: false
+    -
+        text: 'Enable Elastic Beanstalk managed platform updates on the web environment'
+        correct: false
+    -
+        text: 'Configure the web environment with a Network Load Balancer instead of an Application Load Balancer'
+        correct: false

@@ -1,0 +1,17 @@
+text: 'A company has a mobile application that uses an Amazon Cognito user pool for sign-up and sign-in, and a Cognito identity pool to grant users temporary AWS credentials. The company has two groups of users, Standard and Premium. Premium users must receive an IAM role that allows access to an additional Amazon S3 bucket that Standard users must not be able to access. Both groups sign in through the same user pool. What should the developer do to give each group of users a different set of AWS permissions?'
+options:
+    -
+        text: "Create two Cognito user pool groups, Standard and Premium, each associated with a different IAM role, and enable the identity pool's role-based access control so it selects the IAM role from the group claim in the user's token."
+        correct: true
+    -
+        text: "Grant every authenticated user the same broad IAM role that includes permissions for all S3 buckets, and rely on the mobile application's UI to hide the Premium bucket from Standard users."
+        correct: false
+    -
+        text: 'Configure AWS IAM Identity Center (AWS SSO) to assign a permission set to each Cognito user pool group.'
+        correct: false
+    -
+        text: "Attach a resource-based bucket policy to the Premium S3 bucket that allows access from the Cognito user pool's ARN as the principal."
+        correct: false
+    -
+        text: "Create a single IAM role for the identity pool and add an inline policy statement that lists each Premium user's username as a condition."
+        correct: false

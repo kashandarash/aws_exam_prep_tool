@@ -1,0 +1,17 @@
+text: 'A gaming company stores active player session data in a DynamoDB table. Each item includes a SessionExpiry attribute containing a Unix timestamp for when the session should end. The company wants expired sessions to be removed from the table automatically, without consuming write capacity or requiring a scheduled job, and does not need the deletions to happen at the exact expiry second. Which solution meets these requirements?'
+options:
+    -
+        text: 'Enable DynamoDB Time to Live (TTL) on the SessionExpiry attribute.'
+        correct: true
+    -
+        text: 'Create a scheduled AWS Lambda function that scans the table every minute and deletes items where SessionExpiry has passed.'
+        correct: false
+    -
+        text: 'Configure a DynamoDB Stream and an AWS Lambda function that deletes items exactly when SessionExpiry is reached.'
+        correct: false
+    -
+        text: 'Add a conditional expression to every read request that filters out items where SessionExpiry has passed.'
+        correct: false
+    -
+        text: 'Enable S3 Lifecycle policies on a nightly export of the DynamoDB table.'
+        correct: false

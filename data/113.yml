@@ -1,0 +1,17 @@
+text: "A company uses a central AWS account to aggregate application events from several other AWS accounts using Amazon EventBridge. Application teams in each source account publish custom events to their account's default event bus, and the company wants those events delivered to a custom event bus named central-bus in the central account, using native EventBridge cross-account event delivery. (Choose two.)"
+options:
+    -
+        text: "In the central account, attach a resource-based policy to central-bus that grants the source accounts' principals permission to call the events:PutEvents action on that event bus."
+        correct: true
+    -
+        text: "In each source account, create an EventBridge rule that matches the desired events on the default event bus and specifies central-bus in the central account as the rule's target."
+        correct: true
+    -
+        text: "In each source account, create an identical custom event bus named central-bus and enable automatic bidirectional replication between it and the central account's bus."
+        correct: false
+    -
+        text: "In the central account, grant the source accounts' IAM users a role that allows them to assume a role in the central account to read events directly from AWS CloudTrail."
+        correct: false
+    -
+        text: 'In the central account, enable EventBridge schema discovery on central-bus so that the source accounts can automatically subscribe to any schema it infers.'
+        correct: false

@@ -1,0 +1,14 @@
+text: 'A deployment through AWS CodeDeploy to a fleet of EC2 instances fails on several instances during the ApplicationStart lifecycle event, while other instances in the same deployment succeed. The AppSpec file and deployment scripts have not changed since the last successful deployment. A developer needs to find the specific reason the hooks failed on those instances. Where should the developer look FIRST?'
+options:
+    -
+        text: 'The CodeDeploy agent log and deployment logs on the affected instances (for example, /var/log/aws/codedeploy-agent/codedeploy-agent.log and /opt/codedeploy-agent/deployment-root).'
+        correct: true
+    -
+        text: 'AWS CloudTrail event history for the CodeDeploy API calls.'
+        correct: false
+    -
+        text: 'The Amazon S3 server access logs for the bucket holding the application revision.'
+        correct: false
+    -
+        text: 'The VPC Flow Logs for the subnet containing the instances.'
+        correct: false
