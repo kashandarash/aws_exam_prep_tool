@@ -7,7 +7,7 @@ options:
         text: 'Create the certificate for the domain in the same Region as the application. Ensure that the alternate domain name (CNAME) in the distribution settings matches the domain name in the certificate.'
         correct: false
     -
-        text: 'Create the certificate in the eu-west-1 Region. Ensure that the alternate domain name (CNAME) in the distribution settings matches the domain name in the certificate.'
+        text: 'Create the certificate in the us-east-1 Region. Ensure that the alternate domain name (CNAME) in the distribution settings matches the domain name in the certificate.'
         correct: true
     -
         text: 'Recreate the CloudFront distribution in the same Region as the certificate.'

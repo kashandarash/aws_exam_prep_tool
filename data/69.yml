@@ -7,10 +7,10 @@ options:
         correct: false
     -
         text: 'The Lambda function did not run correctly, and Lambda retried the invocation with a delay.'
-        correct: true
+        correct: false
     -
         text: 'Amazon S3 is delivering the same event multiple times.'
-        correct: false
+        correct: true
     -
         text: 'The application stopped intermittently and then resumed, splitting the logs into multiple smaller files.'
         correct: false
