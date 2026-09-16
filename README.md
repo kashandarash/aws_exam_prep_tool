@@ -52,10 +52,32 @@ Open [http://127.0.0.1:8000](http://127.0.0.1:8000).
   been mastered yet, scored against the correct answer(s). Answer a
   question correctly enough times (3, by default) and it's retired from
   future tests.
-- `php bin/console app:questions:export` / `app:questions:import` —
-  round-trip the bank to/from git-friendly YAML files under `data/`
-  (one file per question, named by id), since the SQLite file itself is
-  gitignored runtime state.
+- `php bin/console app:questions:export` / `app:questions:import` — see
+  below.
+
+## Exporting and importing the question bank
+
+`var/data_dev.db` is gitignored runtime state, not something you commit —
+so the git-friendly source of truth for the bank is `data/*.yml`, one
+YAML file per question named after its id (e.g. `data/42.yml`), holding
+just that question's `text` and `options`:
+
+```bash
+php bin/console app:questions:export   # write every question in the DB to data/{id}.yml
+php bin/console app:questions:import   # load every data/*.yml into the DB
+```
+
+- **Export** after adding or editing questions (through the UI, the
+  Bedrock import, or by hand) to snapshot the current bank into `data/`
+  so it can be committed and shared.
+- **Import** to (re)populate a database from what's in `data/` — for
+  example after a fresh `composer install` + `doctrine:schema:create`,
+  or to pull in questions someone else added to `data/` and committed.
+
+Both commands match questions by their normalized text, so re-running
+either is always safe: import only ever adds questions that are missing
+from the database, and export just rewrites each question's file with
+its current content — neither one touches or duplicates anything.
 
 ## Project docs
 
