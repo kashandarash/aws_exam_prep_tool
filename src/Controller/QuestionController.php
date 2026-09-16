@@ -7,6 +7,7 @@ use App\Repository\QuestionRepository;
 use Aws\BedrockRuntime\BedrockRuntimeClient;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -155,6 +156,32 @@ class QuestionController extends AbstractController
         ]);
     }
 
+    #[Route('/questions/{id}/explain', name: 'question_explain', methods: ['POST'], requirements: ['id' => '\d+'])]
+    public function explain(int $id, QuestionRepository $questionRepository, BedrockRuntimeClient $bedrock, string $bedrockModel): JsonResponse
+    {
+        $question = $questionRepository->find($id);
+
+        if (null === $question) {
+            throw $this->createNotFoundException('Question not found.');
+        }
+
+        try {
+            // Explanations are much shorter than a full extraction, but still
+            // a network round trip to Bedrock, which can outlast PHP's default
+            // 30s execution limit under load.
+            set_time_limit(60);
+            $explanation = $this->generateExplanation($bedrock, $bedrockModel, $question);
+        } catch (\Throwable $e) {
+            return $this->json(['error' => 'Bedrock request failed: '.$e->getMessage()], Response::HTTP_BAD_GATEWAY);
+        }
+
+        if ('' === $explanation) {
+            return $this->json(['error' => 'Bedrock returned an empty explanation.'], Response::HTTP_BAD_GATEWAY);
+        }
+
+        return $this->json(['explanation' => $explanation]);
+    }
+
     /**
      * @return list<array{text: string, options: list<array{text: string, correct: bool}>}>
      */
@@ -293,6 +320,56 @@ class QuestionController extends AbstractController
             ],
             'required' => ['questions'],
         ];
+    }
+
+    private function generateExplanation(BedrockRuntimeClient $bedrock, string $modelId, Question $question): string
+    {
+        $optionLines = [];
+        foreach ($question->getOptions() as $index => $option) {
+            $optionLines[] = sprintf('%d. %s%s', $index + 1, $option['text'], $option['correct'] ? ' [CORRECT]' : '');
+        }
+
+        $prompt = sprintf("Question:\n%s\n\nOptions:\n%s", $question->getText(), implode("\n", $optionLines));
+
+        $result = $bedrock->converse([
+            'modelId' => $modelId,
+            'system' => [['text' => $this->explanationSystemPrompt()]],
+            'messages' => [[
+                'role' => 'user',
+                'content' => [['text' => $prompt]],
+            ]],
+            'inferenceConfig' => [
+                'maxTokens' => 1024,
+                'temperature' => 0.2,
+            ],
+        ]);
+
+        foreach ($result['output']['message']['content'] ?? [] as $block) {
+            if (isset($block['text'])) {
+                return trim($block['text']);
+            }
+        }
+
+        return '';
+    }
+
+    private function explanationSystemPrompt(): string
+    {
+        return <<<'PROMPT'
+            You are an AWS certification exam tutor. You will be given a multiple-choice
+            exam question, its answer options in order, and which option(s) are marked
+            [CORRECT] according to the question bank's answer key.
+
+            Write a clear, technically accurate explanation as plain text (no markdown
+            headers, no code fences, no bullet characters):
+
+            - Explain why the option(s) marked [CORRECT] are right, citing the specific
+              AWS service behavior involved.
+            - Briefly explain why each of the other options is wrong or less suitable.
+            - Keep it focused and exam-relevant: a few short paragraphs, not an essay.
+            - Trust the given answer key as correct; explain it rather than second-guess
+              it.
+            PROMPT;
     }
 
     private function isBedrockConnected(BedrockRuntimeClient $bedrock): bool

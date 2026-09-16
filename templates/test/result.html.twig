@@ -37,9 +37,51 @@
                 {% if result.submittedIndexes is empty %}
                     <p class="card-text text-muted mt-2 mb-0">You didn't answer this question.</p>
                 {% endif %}
+                <div class="mt-3">
+                    <button type="button" class="btn btn-outline-secondary btn-sm explain-btn" data-question-id="{{ result.question.id }}">Explain</button>
+                    <div class="alert alert-secondary explain-output mt-2 mb-0" hidden></div>
+                </div>
             </div>
         </div>
     {% endfor %}
 
     <a href="{{ path('test_take') }}" class="btn btn-primary">Take Another Test</a>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        document.querySelectorAll('.explain-btn').forEach((button) => {
+            button.addEventListener('click', () => {
+                const output = button.nextElementSibling;
+
+                button.disabled = true;
+                button.textContent = 'Explaining…';
+                output.hidden = false;
+                output.classList.remove('alert-danger');
+                output.classList.add('alert-secondary');
+                output.textContent = 'Asking Bedrock for an explanation…';
+
+                fetch('/questions/' + button.dataset.questionId + '/explain', {
+                    method: 'POST',
+                    headers: {'Accept': 'application/json'},
+                })
+                    .then((response) => response.json().then((data) => ({ok: response.ok, data: data})))
+                    .then(({ok, data}) => {
+                        if (!ok || data.error) {
+                            throw new Error(data.error || 'Something went wrong.');
+                        }
+
+                        output.textContent = data.explanation;
+                        button.remove();
+                    })
+                    .catch((error) => {
+                        output.classList.remove('alert-secondary');
+                        output.classList.add('alert-danger');
+                        output.textContent = error.message;
+                        button.disabled = false;
+                        button.textContent = 'Explain';
+                    });
+            });
+        });
+    </script>
 {% endblock %}
