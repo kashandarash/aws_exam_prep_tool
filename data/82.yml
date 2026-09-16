@@ -1,0 +1,16 @@
+text: |-
+    A developer has created a web API that uses Amazon Elastic Container Service (Amazon ECS) and an Application Load Balancer (ALB). An Amazon CloudFront distribution uses the API as an origin for web clients. The application has received millions of requests with a JSON Web Token (JWT) that is not valid in the authorization header. The developer has scaled out the application to handle the unauthenticated requests.
+    What should the developer do to reduce the number of unauthenticated requests to the API?
+options:
+    -
+        text: 'Add a request routing rule to the ALB to return a 401 status code if the authorization header is missing.'
+        correct: false
+    -
+        text: 'Add a container to the ECS task definition to validate JWTs Set the new container as a dependency of the application container.'
+        correct: false
+    -
+        text: 'Create a CloudFront function for the distribution Use the crypto module in the function to validate the JWT.'
+        correct: true
+    -
+        text: 'Add a custom authorizer for AWS Lambda to the CloudFront distribution to validate the JWT.'
+        correct: false

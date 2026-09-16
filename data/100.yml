@@ -1,0 +1,16 @@
+text: |-
+    A developer is working on an application that stores highly confidential data in a database. The developer must use AWS Key Management Service (AWS KMS) with envelope encryption to protect the data.
+    How should the developer configure the data encryption to meet these requirements?
+options:
+    -
+        text: 'Encrypt the data by using a KMS key. Store the encrypted data in the database.'
+        correct: false
+    -
+        text: 'Encrypt the data by using a generated data key. Store the encrypted data in the database.'
+        correct: false
+    -
+        text: 'Encrypt the data by using a generated data key. Store the encrypted data and the data key ID in the database.'
+        correct: false
+    -
+        text: 'Encrypt the data by using a generated data key. Store the encrypted data and the encrypted data key in the database.'
+        correct: true

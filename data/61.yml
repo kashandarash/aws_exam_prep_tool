@@ -1,0 +1,16 @@
+text: |-
+    A developer is debugging an AWS Lambda function behind an Amazon API Gateway. Whenever the API Gateway endpoint is called, HTTP status code 200 is returned even though AWS Lambda is recording a 4xx error.
+    What change needs to be made to return a proper error code through the API Gateway?
+options:
+    -
+        text: 'Enable CORS in the API Gateway method settings'
+        correct: false
+    -
+        text: 'Use a Lambda proxy integration to return HTTP codes and headers'
+        correct: true
+    -
+        text: 'Enable API Gateway error pass-through.'
+        correct: false
+    -
+        text: 'Return the value in the header x-Amzn-ErrorType.'
+        correct: false

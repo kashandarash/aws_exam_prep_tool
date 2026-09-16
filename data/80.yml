@@ -1,0 +1,18 @@
+text: |-
+    An ecommerce company wants to redirect users to a country-specific website when they enter the example.com website. For example, the company wants to redirect United States users to example.com/us/ and wants to redirect French users to example.com/fr/. The web application is using Amazon CloudFront and an
+    Application Load Balancer with an Amazon Elastic Container Service (Amazon ECS) cluster. The application's domain name resolution is configured in an
+    Amazon Route 53 public hosted zone.
+    Which solution will meet these requirements with the LEAST operational effort?
+options:
+    -
+        text: "Update the routing policy for the application's Route 53 record to specify geolocation routing. Configure listener rules based on a unique alias location to redirect requests to the correct URLs by country."
+        correct: false
+    -
+        text: 'Create a CloudFront function to inspect the CloudFront-Viewer-Country header and return redirect responses to different URLs based on user location.'
+        correct: true
+    -
+        text: 'On the ECS web server configuration, use a GeoIP database to look up the requested IP address and redirect requests to the correct URLs by country.'
+        correct: false
+    -
+        text: 'Use AWS WAF to determine the country of origin. Create an AWS WAF custom rule with a geographic match condition to redirect traffic from each country to the correct URL.'
+        correct: false

@@ -1,0 +1,16 @@
+text: |-
+    An ecommerce application is running behind an Application Load Balancer. A developer observes some unexpected load on the application during non-peak hours. The developer wants to analyze patterns for the client IP addresses that use the application.
+    Which HTTP header should the developer use for this analysis?
+options:
+    -
+        text: 'The X-Forwarded-Proto header'
+        correct: false
+    -
+        text: 'The X-Forwarded-Host header'
+        correct: false
+    -
+        text: 'The X-Forwarded-For header'
+        correct: true
+    -
+        text: 'The X-Forwarded-Port header'
+        correct: false

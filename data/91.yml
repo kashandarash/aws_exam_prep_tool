@@ -1,0 +1,16 @@
+text: |-
+    A developer needs to create an application that supports Security Assertion Markup Language (SAML) and authentication with social media providers. It must also allow access to AWS services, such as Amazon DynamoDB.
+    Which AWS service or feature will meet these requirements with the LEAST amount of additional coding?
+options:
+    -
+        text: 'AWS AppSync'
+        correct: false
+    -
+        text: 'Amazon Cognito identity pools'
+        correct: true
+    -
+        text: 'Amazon Cognito user pools'
+        correct: false
+    -
+        text: 'Amazon Lambda@Edge'
+        correct: false

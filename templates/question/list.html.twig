@@ -71,7 +71,7 @@
                                 {% if option.correct %}
                                     <span class="me-2 text-success" aria-hidden="true">&#10003;</span>
                                 {% endif %}
-                                {{ option.text }}
+                                {{ option.text|nl2br }}
                             </li>
                         {% endfor %}
                     </ul>

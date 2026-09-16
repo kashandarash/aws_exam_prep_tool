@@ -1,0 +1,16 @@
+text: |-
+    A developer needs to use the AWS CLI on an on-premises development server temporarily to access AWS services while performing maintenance. The developer needs to authenticate to AWS with their identity for several hours.
+    What is the MOST secure way to call AWS CLI commands with the developer's IAM identity?
+options:
+    -
+        text: "Specify the developer's IAM access key ID and secret access key as parameters for each CLI command"
+        correct: false
+    -
+        text: "Run the aws configure CLI command. Provide the developer's IAM access key ID and secret access key."
+        correct: false
+    -
+        text: "Specify the developer's IAM profile as a parameter for each CLI command."
+        correct: false
+    -
+        text: "Run the get-session-token CLI command with the developer's IAM user. Use the returned credentials to call the CLI"
+        correct: true

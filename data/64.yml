@@ -1,0 +1,16 @@
+text: |-
+    A company has a multi-tier application that uses Amazon API Gateway, AWS Lambda, and Amazon RDS. The company wants to investigate a slow response time to calls that come from the API Gateway API.
+    What is the MOST operationally efficient way for the company to determine which internal call is causing the slow response times?
+options:
+    -
+        text: 'Use Amazon CloudWatch.'
+        correct: false
+    -
+        text: 'Use AWS X-Ray.'
+        correct: true
+    -
+        text: 'Use AWS CloudTrail.'
+        correct: false
+    -
+        text: 'Use VPC Flow Logs.'
+        correct: false

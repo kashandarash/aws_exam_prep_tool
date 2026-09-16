@@ -1,0 +1,16 @@
+text: |-
+    A developer is testing an application locally and has deployed the application to an AWS Lambda function. To avoid exceeding the deployment package size quota, the developer did not include the dependencies in the deployment file. When the developer tests the application remotely, the Lambda function does not run because of missing dependencies.
+    Which solution will resolve this issue?
+options:
+    -
+        text: 'Use the Lambda console editor to update the code and include the missing dependencies.'
+        correct: false
+    -
+        text: 'Create an additional .zip file that contains the missing dependencies. Include the .zip file in the original Lambda deployment package.'
+        correct: false
+    -
+        text: "Add references to the missing dependencies in the Lambda function's environment variables."
+        correct: false
+    -
+        text: 'Create a layer that contains the missing dependencies. Attach the layer to the Lambda function.'
+        correct: true

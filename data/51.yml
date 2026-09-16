@@ -1,0 +1,17 @@
+text: |-
+    An application needs to use the IP address of the client in its processing. The application has been moved into AWS and has been placed behind an Application
+    Load Balancer (ALB). However, all the client IP addresses now appear to be the same. The application must maintain the ability to scale horizontally.
+    Based on this scenario, what is the MOST cost-effective solution to this problem?
+options:
+    -
+        text: 'Remove the application from the ALB. Delete the ALB and change Amazon Route 53 to direct traffic to the instance running the application.'
+        correct: false
+    -
+        text: 'Remove the application from the ALB. Create a Classic Load Balancer in its place. Direct traffic to the application using the HTTP protocol.'
+        correct: false
+    -
+        text: 'Alter the application code to inspect the X-Forwarded-For header. Ensure that the code can work properly if a list of IP addresses is passed in the header.'
+        correct: true
+    -
+        text: 'Alter the application code to inspect a custom header. Alter the client code to pass the IP address in the custom header.'
+        correct: false

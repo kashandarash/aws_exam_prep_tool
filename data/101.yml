@@ -1,0 +1,27 @@
+text: |-
+    A developer is adding Amazon ElastiCache for Memcached to a company's existing record storage application. The developer has decided to use lazy loading based on an analysis of common record handling patterns.
+    Which pseudocode example will correctly implement lazy loading?
+options:
+    -
+        text: |-
+            record_value = db.query("UPDATE Records SET Details = {1} WHERE ID == {0}", record_key, record_value)
+            cache.set (record_key, record_value)
+        correct: false
+    -
+        text: |-
+            record_value = cache.get(record_key)
+            if (record_value == NULL)
+                record_value = db.query("SELECT Details FROM Records WHERE ID == {0}", record_key)
+                cache.set (record_key, record_value)
+        correct: true
+    -
+        text: |-
+            record_value = cache.get (record_key)
+            db.query("UPDATE Records SET Details = {1} WHERE ID == {0}", record_key, record_value)
+        correct: false
+    -
+        text: |-
+            record_value = db.query("SELECT Details FROM Records WHERE ID == {0}", record_key)
+            if (record_value != NULL)
+                cache.set (record_key, record_value)
+        correct: false

@@ -1,0 +1,17 @@
+text: |-
+    A serverless application is using AWS Step Functions to process data and save it to a database. The application needs to validate some data with an external service before saving the data. The application will call the external service from an AWS Lambda function, and the external service will take a few hours to validate the data. The external service will respond to a webhook when the validation is complete.
+    A developer needs to pause the Step Functions workflow and wait for the response from the external service.
+    What should the developer do to meet this requirement?
+options:
+    -
+        text: 'Use the .wait ForTaskToken option in the Lambda function task state. Pass the token in the body.'
+        correct: true
+    -
+        text: 'Use the .waitForTaskToken option in the Lambda function task state. Pass the invocation request.'
+        correct: false
+    -
+        text: 'Call the Lambda function in synchronous mode. Wait for the external service to complete the processing.'
+        correct: false
+    -
+        text: 'Call the Lambda function in asynchronous mode. Use the Wait state until the external service completes the processing.'
+        correct: false

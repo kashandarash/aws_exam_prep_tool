@@ -1,0 +1,19 @@
+text: |-
+    A Developer is working on a serverless project based in Java. Initial testing shows a cold start takes about 8 seconds on average for AWS Lambda functions.
+    What should the Developer do to reduce the cold start time? (Choose two.)
+options:
+    -
+        text: 'Add the Spring Framework to the project and enable dependency injection.'
+        correct: false
+    -
+        text: 'Reduce the deployment package by including only needed modules from the AWS SDK for Java.'
+        correct: true
+    -
+        text: 'Increase the memory allocation setting for the Lambda function.'
+        correct: true
+    -
+        text: 'Increase the timeout setting for the Lambda function.'
+        correct: false
+    -
+        text: 'Change the Lambda invocation mode from synchronous to asynchronous.'
+        correct: false

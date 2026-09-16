@@ -1,0 +1,16 @@
+text: |-
+    A Developer must build an application that uses Amazon DynamoDB. The requirements state that the items being stored in the DynamoDB table will be 7KB in size and that reads must be strongly consistent. The maximum read rate is 3 items per second, and the maximum write rate is 10 items per second.
+    How should the Developer size the DynamoDB table to meet these requirements?
+options:
+    -
+        text: 'Read: 3 read capacity units Write: 70 write capacity units'
+        correct: false
+    -
+        text: 'Read: 6 read capacity units Write: 70 write capacity units'
+        correct: true
+    -
+        text: 'Read: 6 read capacity units Write: 10 write capacity units'
+        correct: false
+    -
+        text: 'Read: 3 read capacity units Write: 10 write capacity units'
+        correct: false

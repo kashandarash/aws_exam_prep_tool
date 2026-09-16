@@ -1,0 +1,20 @@
+text: |-
+    A developer is deploying on application on Amazon EC2 instances that run in Account A. In certain cases, this application needs to read data from a private
+    Amazon S3 bucket in Account B. The developer must provide the application access to the S3 bucket without exposing the S3 bucket to anyone else.
+    Which combination of actions should the developer take to meet these requirements? (Choose two.)
+options:
+    -
+        text: 'Create an IAM role with S3 read permissions in Account B.'
+        correct: false
+    -
+        text: 'Update the instance profile IAM role in Account A with S3 read permissions.'
+        correct: true
+    -
+        text: 'Make the S3 bucket public with limited access for Account A.'
+        correct: false
+    -
+        text: 'Configure the bucket policy in Account B to grant permissions to the instance profile role.'
+        correct: true
+    -
+        text: 'Add a trust policy that allows s3:Get* permissions to the IAM rote in Account B.'
+        correct: false

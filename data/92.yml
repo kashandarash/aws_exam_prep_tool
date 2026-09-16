@@ -1,0 +1,17 @@
+text: |-
+    A developer is designing a serverless application for an ecommerce website. An Amazon API Gateway API exposes AWS Lambda functions for billing, payment, and user operations. The website features shopping carts for the users. The shopping carts must be stored for extended periods of time and will be retrieved frequently by the front-end application.
+    The load on the application will vary significantly based on the time of day and the promotional sales that are offered on the website. The application must be able to scale automatically to meet these changing demands.
+    Which solution will meet these requirements?
+options:
+    -
+        text: 'Store the data objects on an Amazon RDS DB instance. Cache the data objects in memory by using Amazon ElastiCache.'
+        correct: false
+    -
+        text: "Store the data objects on Amazon EC2 instances behind an Application Load Balancer. Use session affinity (sticky sessions) for each user's shopping cart."
+        correct: false
+    -
+        text: 'Store the data objects in Amazon S3 buckets. Cache the data objects by using Amazon CloudFront with the maximum TTL.'
+        correct: false
+    -
+        text: 'Store the data objects in Amazon DynamoDB tables. Cache the data objects by using DynamoDB Accelerator (DAX).'
+        correct: true

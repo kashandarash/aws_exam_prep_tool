@@ -1,0 +1,17 @@
+text: |-
+    A Development team is working on a case management solution that allows medical claims to be processed and reviewed. Users log in to provide information related to their medical and financial situations.
+    As part of the application, sensitive documents such as medical records, medical imaging, bank statements, and receipts are uploaded to Amazon S3. All documents must be securely transmitted and stored. All access to the documents must be recorded for auditing.
+    What is the MOST secure approach?
+options:
+    -
+        text: 'Use S3 default encryption using Advanced Encryption Standard-256 (AES-256) on the destination bucket.'
+        correct: false
+    -
+        text: 'Use Amazon Cognito for authorization and authentication to ensure the security of the application and documents.'
+        correct: false
+    -
+        text: 'Use AWS Lambda to encrypt and decrypt objects as they are placed into the S3 bucket.'
+        correct: false
+    -
+        text: 'Use client-side encryption/decryption with Amazon S3 and AWS KMS.'
+        correct: true

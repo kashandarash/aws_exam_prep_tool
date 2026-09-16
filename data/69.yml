@@ -1,0 +1,16 @@
+text: |-
+    A company has an application that writes files to an Amazon S3 bucket. Whenever there is a new file, an S3 notification event invokes an AWS Lambda function to process the file. The Lambda function code works as expected. However, when a developer checks the Lambda function logs, the developer finds that multiple invocations occur for every file.
+    What is causing the duplicate entries?
+options:
+    -
+        text: 'The S3 bucket name is incorrectly specified in the application and is targeting another S3 bucket.'
+        correct: false
+    -
+        text: 'The Lambda function did not run correctly, and Lambda retried the invocation with a delay.'
+        correct: true
+    -
+        text: 'Amazon S3 is delivering the same event multiple times.'
+        correct: false
+    -
+        text: 'The application stopped intermittently and then resumed, splitting the logs into multiple smaller files.'
+        correct: false

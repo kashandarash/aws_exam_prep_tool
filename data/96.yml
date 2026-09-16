@@ -1,0 +1,19 @@
+text: |-
+    A developer is creating a web application that must give users the ability to post comments and receive feedback in near real time.
+    Which solutions will meet these requirements? (Select TWO.)
+options:
+    -
+        text: 'Create an AWS AppSync schema and corresponding APIs. Use an Amazon DynamoDB table as the data store.'
+        correct: true
+    -
+        text: 'Create a WebSocket API in Amazon API Gateway. Use an AWS Lambda function as the backend. Use an Amazon DynamoDB table as the data store.'
+        correct: true
+    -
+        text: 'Create an AWS Elastic Beanstalk application that is backed by an Amazon RDS database. Configure the application to allow long-lived TCP/IP sockets.'
+        correct: false
+    -
+        text: 'Create a GraphQL endpoint in Amazon API Gateway. Use an Amazon DynamoDB table as the data store.'
+        correct: false
+    -
+        text: "Establish WebSocket connections to Amazon CloudFront. Use an AWS Lambda function as the CloudFront distribution's origin. Use an Amazon Aurora DB cluster as the data store."
+        correct: false

@@ -1,0 +1,14 @@
+text: 'For a deployment using AWS CodeDeploy, what is the run order of the hooks for in-place deployments?'
+options:
+    -
+        text: 'Before Install -> Application Stop -> Application Start -> After Install'
+        correct: false
+    -
+        text: 'Application Stop -> Before Install -> After Install -> Application Start'
+        correct: true
+    -
+        text: 'Before Install -> Application Stop -> Validate Service -> Application Start'
+        correct: false
+    -
+        text: 'Application Stop -> Before Install -> Validate Service -> Application Start'
+        correct: false

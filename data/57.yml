@@ -1,0 +1,16 @@
+text: |-
+    A developer is storing JSON files in an Amazon S3 bucket. The developer wants to securely share an object with a specific group of people.
+    How can the developer securely provide temporary access to the objects that are stored in the S3 bucket?
+options:
+    -
+        text: "Set object retention on the files. Use the AWS software development kit (SDK) to restore the object before subsequent requests. Provide the bucket's S3 URL."
+        correct: false
+    -
+        text: 'Use the AWS software development kit (SDK) to generate a presigned URL. Provide the presigned URL.'
+        correct: true
+    -
+        text: "Set a bucket policy that restricts access after a period of time. Provide the bucket's S3 URL."
+        correct: false
+    -
+        text: "Configure static web hosting on the S3 bucket. Provide the bucket's web URL."
+        correct: false

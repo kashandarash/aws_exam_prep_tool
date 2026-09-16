@@ -1,0 +1,16 @@
+text: |-
+    A developer tested an application locally and then deployed it to AWS Lambda. While testing the application remotely, the Lambda function fails with an access denied message.
+    How can this issue be addressed?
+options:
+    -
+        text: "Update the Lambda function's execution role to include the missing permissions."
+        correct: true
+    -
+        text: "Update the Lambda function's resource policy to include the missing permissions."
+        correct: false
+    -
+        text: 'Include an IAM policy document at the root of the deployment package and redeploy the Lambda function.'
+        correct: false
+    -
+        text: 'Redeploy the Lambda function using an account with access to the AdministratorAccess policy.'
+        correct: false

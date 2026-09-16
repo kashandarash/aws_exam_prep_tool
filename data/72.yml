@@ -1,0 +1,16 @@
+text: |-
+    A developer deployed an application to an Amazon EC2 instance. The application needs to know the public IPv4 address of the instance.
+    How can the application find this information?
+options:
+    -
+        text: 'Query the instance metadata from http://169.254.169.254/latest/meta-data/.'
+        correct: true
+    -
+        text: 'Query the instance user data from http://169.254.169.254/latest/user-data/.'
+        correct: false
+    -
+        text: 'Query the Amazon Machine Image (AMI) information from http://169.254 169.254/latest/meta-data/ami/.'
+        correct: false
+    -
+        text: 'Check the hosts file of the operating system.'
+        correct: false

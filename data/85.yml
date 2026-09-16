@@ -1,0 +1,17 @@
+text: |-
+    A company is planning to use AWS CodeDeploy to deploy an application to AWS Lambda. During the deployment of a new version of the application, the company initially must expose only 10% of live traffic to the new version of the deployed application. Then, every 10 minutes, the company must route another
+    10% of live traffic to the new version of the deployed application until all live traffic is routed to the new version.
+    Which CodeDeploy predefined configuration will meet these requirements?
+options:
+    -
+        text: CodeDeployDefault.OnceAtATime
+        correct: false
+    -
+        text: CodeDeployDefault.LambdaCanary10Percent10Minutes
+        correct: false
+    -
+        text: CodeDeployDefault.LambdaLinear10PercentEvery10Minutes
+        correct: true
+    -
+        text: CodeDeployDefault.ECSLinear10PercentEvery3Minutes
+        correct: false

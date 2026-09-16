@@ -1,0 +1,16 @@
+text: |-
+    A microservices application is deployed across multiple containers in Amazon Elastic Container Service (Amazon ECS). To improve performance, a developer wants to capture trace information between the microservices and visualize the microservices architecture.
+    Which solution will meet these requirements?
+options:
+    -
+        text: 'Build the container from the amazon/aws-xray-daemon base image. Use the AWS X-Ray SDK to instrument the application.'
+        correct: true
+    -
+        text: 'Install the Amazon CloudWatch agent on the container image. Use the CloudWatch SDK to publish custom metrics from each of the microservices.'
+        correct: false
+    -
+        text: 'Install the AWS X-Ray daemon on each of the ECS instances.'
+        correct: false
+    -
+        text: 'Configure AWS CloudTrail data events to capture the traffic between the microservices.'
+        correct: false

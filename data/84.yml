@@ -1,0 +1,17 @@
+text: |-
+    A developer has created on AWS Lambda function tool uses 15 MB of memory. When the developer runs the code natively on a laptop that has 4 cores, the function runs within 100 ms. When the developer deploys the code as a Lambda function with 128 MB of memory, the first run takes 3 seconds. Subsequent runs take more than 500 ms to finish.
+    The developer needs to improve the performance of the Lambda function so that the function runs consistently in less than 100 ms, excluding the initial startup time.
+    Which solution will meet this requirement?
+options:
+    -
+        text: 'Increase the reserved concurrency of the Lambda function.'
+        correct: false
+    -
+        text: 'Increase the provisioned concurrency of the Lambda function.'
+        correct: false
+    -
+        text: 'Increase the memory of the Lambda function.'
+        correct: true
+    -
+        text: 'Repackage the Lambda function as a container. Redeploy the function.'
+        correct: false

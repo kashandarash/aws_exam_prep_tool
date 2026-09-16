@@ -1,0 +1,16 @@
+text: |-
+    A company is building a compute-intensive application that will run on a fleet of Amazon EC2 instances. The application uses attached Amazon EBS disks for storing data. The application will process sensitive information and all the data must be encrypted.
+    What should a Developer do to ensure the data is encrypted on disk without impacting performance?
+options:
+    -
+        text: 'Configure the Amazon EC2 instance fleet to use encrypted EBS volumes for storing data.'
+        correct: true
+    -
+        text: 'Add logic to write all data to an encrypted Amazon S3 bucket.'
+        correct: false
+    -
+        text: 'Add a custom encryption algorithm to the application that will encrypt and decrypt all data.'
+        correct: false
+    -
+        text: 'Create a new Amazon Machine Image (AMI) with an encrypted root volume and store the data to ephemeral disks.'
+        correct: false

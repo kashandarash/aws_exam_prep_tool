@@ -1,0 +1,17 @@
+text: |-
+    A company has moved a legacy on-premises application to AWS by performing a lift and shift. The application exposes a REST API that can be used to retrieve billing information. The application is running on a single Amazon EC2 instance. The application code cannot support concurrent invocations. Many clients access the API, and the company adds new clients all the time.
+    A developer is concerned that the application might become overwhelmed by too many requests. The developer needs to limit the number of requests to the API for all current and future clients. The developer must not change the API, the application, or the client code.
+    What should the developer do to meet these requirements?
+options:
+    -
+        text: 'Place the API behind an Amazon API Gateway API. Set the server-side throttling limits.'
+        correct: true
+    -
+        text: 'Place the API behind a Network Load Balancer. Set the target group throttling limits.'
+        correct: false
+    -
+        text: 'Place the API behind an Application Load Balancer. Set the target group throttling limits.'
+        correct: false
+    -
+        text: 'Place the API behind an Amazon API Gateway API. Set the per-client throttling limits.'
+        correct: false

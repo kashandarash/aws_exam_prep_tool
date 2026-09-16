@@ -1,0 +1,16 @@
+text: |-
+    A Developer has written an application that runs on Amazon EC2 instances and generates a value every minute. The Developer wants to monitor and graph the values generated over time without logging in to the instance each time.
+    Which approach should the Developer use to achieve this goal?
+options:
+    -
+        text: 'Use the Amazon CloudWatch metrics reported by default for all EC2 instances. View each value from the CloudWatch console.'
+        correct: false
+    -
+        text: 'Develop the application to store each value in a file on Amazon S3 every minute with the timestamp as the name.'
+        correct: false
+    -
+        text: 'Publish each generated value as a custom metric to Amazon CloudWatch using available AWS SDKs.'
+        correct: true
+    -
+        text: 'Store each value as a variable and add the variable to the list of EC2 metrics that should be reported to the Amazon CloudWatch console.'
+        correct: false

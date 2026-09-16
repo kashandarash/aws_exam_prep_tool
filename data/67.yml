@@ -1,0 +1,17 @@
+text: |-
+    A developer must use AWS X-Ray to monitor an application that is running on an Amazon EC2 instance. The developer has prepared the application by using the
+    X-Ray SDK.
+    What should the developer do to perform the monitoring?
+options:
+    -
+        text: 'Configure the X-Ray SDK sampling rule and target. Activate the X-Ray daemon from the EC2 console or the AWS CLI with the modify-instance-attribute command to set the XRayEnabled flag.'
+        correct: false
+    -
+        text: 'Install the X-Ray daemon. Assign an IAM role to the EC2 instance with a policy that allows writes to X-Ray.'
+        correct: true
+    -
+        text: 'Install the X-Ray daemon. Configure it to forward data to Amazon EventBridge (Amazon CloudWatch Events). Grant the EC2 instance permission to write to Event Bridge (CloudWatch Events).'
+        correct: false
+    -
+        text: 'Deploy the X-Ray SDK with the application, and instrument the application code. Use the SDK logger to capture and send the events.'
+        correct: false

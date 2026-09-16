@@ -1,0 +1,17 @@
+text: |-
+    An application uses Amazon Kinesis Data Streams to ingest and process large streams of data records in real time. Amazon EC2 instances consume and process the data from the shards of the Kinesis data stream by using Amazon Kinesis Client Library (KCL). The application handles the failure scenarios and does not require standby workers. The application reports that a specific shard is receiving more data than expected. To adapt to the changes in the rate of data flow, the
+    `hot` shard is resharded.
+    Assuming that the initial number of shards in the Kinesis data stream is 4, and after resharding the number of shards increased to 6, what is the maximum number of EC2 instances that can be deployed to process data from all the shards?
+options:
+    -
+        text: '12'
+        correct: false
+    -
+        text: '6'
+        correct: true
+    -
+        text: '4'
+        correct: false
+    -
+        text: '1'
+        correct: false

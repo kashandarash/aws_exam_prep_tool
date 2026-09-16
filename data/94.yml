@@ -1,0 +1,16 @@
+text: |-
+    An application running on Amazon EC2 opens connections to an Amazon RDS SQL Server database. The developer does not want to store the user name and password for the database in the code. The developer would also like to automatically rotate the credentials.
+    What is the MOST secure way to store and access the database credentials?
+options:
+    -
+        text: 'Create an IAM role that has permissions to access the database. Attach the role to the EC2 instance.'
+        correct: false
+    -
+        text: 'Use AWS Secrets Manager to store the credentials. Retrieve the credentials from Secrets Manager as needed.'
+        correct: true
+    -
+        text: "Store the credentials in an encrypted text file in an Amazon S3 bucket. Configure the EC2 instance's user data to download the credentials from Amazon S3 as the instance boots."
+        correct: false
+    -
+        text: 'Store the user name and password credentials directly in the source code. No further action is needed because the source code is stored in a private repository.'
+        correct: false

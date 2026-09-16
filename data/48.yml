@@ -1,0 +1,18 @@
+text: |-
+    A developer is trying to get data from an Amazon DynamoDB table called demoman-table. The developer configured the AWS CLI to use a specific IAM user's credentials and executed the following command:
+    <img src="/assets/media/exam-media/04238/0002400001.png" class="in-exam-image">
+    The command returned errors and no rows were returned.
+    What is the MOST likely cause of these issues?
+options:
+    -
+        text: 'The command is incorrect; it should be rewritten to use put-item with a string argument.'
+        correct: false
+    -
+        text: 'The developer needs to log a ticket with AWS Support to enable access to the demoman-table.'
+        correct: false
+    -
+        text: 'Amazon DynamoDB cannot be accessed from the AWS CLI and needs to be called via the REST API.'
+        correct: false
+    -
+        text: 'The IAM user needs an associated policy with read access to demoman-table.'
+        correct: true

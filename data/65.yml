@@ -1,0 +1,16 @@
+text: |-
+    A developer is deploying an application that will store files in an Amazon S3 bucket. The files must be encrypted at rest. The developer wants to automatically replicate the files to an S3 bucket in a different AWS Region for disaster recovery.
+    How can the developer accomplish this task with the LEAST amount of configuration?
+options:
+    -
+        text: 'Encrypt the files by using server-side encryption with S3 managed encryption keys (SSE-S3). Enable S3 bucket replication.'
+        correct: true
+    -
+        text: 'Encrypt the files by using server-side encryption (SSE) with an AWS Key Management Service (AWS KMS) customer master key (CMK). Enable S3 bucket replication.'
+        correct: false
+    -
+        text: 'Use the s3 sync command to sync the files to the S3 bucket in the other Region.'
+        correct: false
+    -
+        text: 'Configure an S3 Lifecycle configuration to automatically transfer files to the S3 bucket in the other Region.'
+        correct: false

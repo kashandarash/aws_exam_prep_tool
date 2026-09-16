@@ -1,0 +1,16 @@
+text: |-
+    A developer notices timeouts from the AWS CLI when the developer runs list commands.
+    What should the developer do to avoid these timeouts?
+options:
+    -
+        text: 'Use the --page-size parameter to request a smaller number of items.'
+        correct: true
+    -
+        text: 'Use shorthand syntax to separate the list by a single space.'
+        correct: false
+    -
+        text: 'Use the yaml-stream output for faster viewing of large datasets.'
+        correct: false
+    -
+        text: 'Use quotation marks around strings to enclose data structure.'
+        correct: false

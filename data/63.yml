@@ -1,0 +1,16 @@
+text: |-
+    A developer is using Amazon S3 as the event source that invokes a Lambda function when new objects are created in the bucket. The event source mapping information is stored in the bucket notification configuration. The developer is working with different versions of the Lambda function, and has a constant need to update notification configuration so that Amazon S3 invokes the correct version.
+    What is the MOST efficient and effective way to achieve mapping between the S3 event and Lambda?
+options:
+    -
+        text: 'Use a different Lambda trigger.'
+        correct: false
+    -
+        text: 'Use Lambda environment variables.'
+        correct: false
+    -
+        text: 'Use a Lambda alias.'
+        correct: true
+    -
+        text: 'Use Lambda tags.'
+        correct: false

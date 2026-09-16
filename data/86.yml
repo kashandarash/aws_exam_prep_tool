@@ -1,0 +1,16 @@
+text: |-
+    A developer wants to use AWS Elastic Beanstalk to test a new version of on application in a test environment.
+    Which deployment method offers the FASTEST deployment?
+options:
+    -
+        text: Immutable
+        correct: false
+    -
+        text: Rolling
+        correct: false
+    -
+        text: 'Rolling with additional batch'
+        correct: false
+    -
+        text: 'All at once'
+        correct: true

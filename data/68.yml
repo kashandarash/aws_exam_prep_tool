@@ -1,0 +1,18 @@
+text: |-
+    A developer is designing a full-stack serverless application. Files for the website are stored in an Amazon S3 bucket. AWS Lambda functions that use Amazon
+    API Gateway endpoints return results from an Amazon DynamoDB table.
+    The developer must create a solution that securely provides registration and authentication for the application while minimizing the amount of configuration.
+    Which solution meets these requirements?
+options:
+    -
+        text: 'Create an Amazon Cognito user pool and an app client. Configure the app client to use the user pool and provide the hosted web UI provided for sign-up and sign-in.'
+        correct: true
+    -
+        text: 'Configure an Amazon Cognito identity pool. Map the users with IAM roles that are configured to access the S3 bucket that stores the website.'
+        correct: false
+    -
+        text: 'Configure and launch an Amazon EC2 instance to set up an identity provider with an Amazon Cognito user pool. Configure the user pool to provide the hosted web UI for sign-up and sign-in.'
+        correct: false
+    -
+        text: 'Create an IAM policy that allows access to the website that is stored in the S3 bucket. Attach the policy to an IAM group. Add IAM users to the group.'
+        correct: false

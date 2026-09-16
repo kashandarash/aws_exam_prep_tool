@@ -1,0 +1,16 @@
+text: |-
+    A developer is creating a serverless application that uses an AWS Lambda function The developer will use AWS CloudFormation to deploy the application The application will write logs to Amazon CloudWatch Logs. The developer has created a log group in a CloudFormation template for the application to use. The developer needs to modify the CloudFormation template to make the name of the log group available to the application at runtime.
+    Which solution will meet this requirement?
+options:
+    -
+        text: "Use the AWS::Include transform in CloudFormation to provide the log group's name to the application."
+        correct: false
+    -
+        text: "Pass the log group's name to the application in the user data section of the CloudFormation template"
+        correct: false
+    -
+        text: "Use the CloudFormation template's Mappings section to specify the log group's name for the application."
+        correct: false
+    -
+        text: "Pass the log group's Amazon Resource Name (ARN) as an environment variable to the Lambda function."
+        correct: true

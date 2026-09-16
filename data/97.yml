@@ -1,0 +1,19 @@
+text: |-
+    A developer is adding sign-up and sign-in functionality to an application. The application must make an API call to a custom analytics solution to log user sign-in events.
+    Which combination of actions should the developer perform to meet these requirements? (Select TWO.)
+options:
+    -
+        text: 'Use Amazon Cognito to provide the sign-up and sign-in functionality.'
+        correct: true
+    -
+        text: 'Use AWS Identity and Access Management (IAM) to provide the sign-up and sign-in functionality.'
+        correct: false
+    -
+        text: 'Configure an AWS Config rule to make the API call when a user is authenticated.'
+        correct: false
+    -
+        text: 'Invoke an Amazon API Gateway method to make the API call when a user is authenticated.'
+        correct: false
+    -
+        text: 'Invoke an AWS Lambda function to make the API call when a user is authenticated.'
+        correct: true

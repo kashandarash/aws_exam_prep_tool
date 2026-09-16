@@ -1,0 +1,16 @@
+text: |-
+    A developer is creating a mobile application that will not require users to log in.
+    What is the MOST efficient method to grant users access to AWS resources?
+options:
+    -
+        text: 'Use an identity provider to securely authenticate with the application.'
+        correct: false
+    -
+        text: 'Create an AWS Lambda function to create an IAM user when a user accesses the application.'
+        correct: false
+    -
+        text: 'Create credentials using AWS KMS and apply these credentials to users when using the application.'
+        correct: false
+    -
+        text: 'Use Amazon Cognito to associate unauthenticated users with an IAM role that has limited access to resources.'
+        correct: true

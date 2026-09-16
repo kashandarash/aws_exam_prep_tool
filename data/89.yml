@@ -1,0 +1,19 @@
+text: |-
+    A developer at a company recently created a serverless application to process and show data from business reports. The application's user interface (UI) allows users to select and start processing the flies. The UI displays a message when the result is available to view. The application uses AWS Step Functions with AWS
+    Lambda functions to process the files. The developer used Amazon API Gateway and Lambda functions to create an API to support the UI.
+    The company's UI team reports that the request to process a file s often returning timeout errors because of the size or complexity of the files. The UI team wants the API to provide an immediate response so that the UI can display a message while the files are being processed. The backend process that is invoked by the
+    API needs to send an email message when the report processing is complete.
+    What should the developer do to configure the API to meet these requirements?
+options:
+    -
+        text: "Change the API Gateway route to add an X-Amz-Invocation-Type header with a static value of 'Event' in the integration request. Deploy the API Gateway stage to apply the changes."
+        correct: true
+    -
+        text: 'Change the configuration of the Lambda function that implements the request to process a file. Configure the maximum age of the event so that the Lambda function will run asynchronously.'
+        correct: false
+    -
+        text: 'Change the API Gateway timeout value to match the Lambda function timeout value. Deploy the API Gateway stage to apply the changes.'
+        correct: false
+    -
+        text: "Change the API Gateway route to add an X-Amz-Target header with a static value of 'Async' in the integration request. Deploy the API Gateway stage to apply the changes."
+        correct: false

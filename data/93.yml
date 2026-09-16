@@ -1,0 +1,16 @@
+text: |-
+    A company is migrating its on-premises database to Amazon RDS for MySQL. The company has read-heavy workloads, and wants to make sure it re-factors its code to achieve optimum read performance for its queries.
+    How can this objective be met?
+options:
+    -
+        text: 'Add database retries to effectively use RDS with vertical scaling.'
+        correct: false
+    -
+        text: 'Use RDS with multi-AZ deployment.'
+        correct: false
+    -
+        text: 'Add a connection string to use an RDS read replica for read queries.'
+        correct: true
+    -
+        text: 'Add a connection string to use a read replica on an EC2 instance.'
+        correct: false

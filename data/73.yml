@@ -1,0 +1,16 @@
+text: |-
+    A developer is designing an AWS Lambda function to perform a maintenance activity. The developer will use Amazon EventBridge (Amazon CloudWatch Events) to invoke the function on an hourly schedule. The developer wants the function to log information at different levels of detail according to the value of a log level variable. The developer must design the function so that the log level can be set without requiring a change to the function code.
+    Which solution will meet these requirements?
+options:
+    -
+        text: 'Add a custom log level parameter for the Lambda function. Set the parameter by using the Lambda console'
+        correct: false
+    -
+        text: 'Set the log level in a Lambda environment variable'
+        correct: true
+    -
+        text: 'Set the log level in the Amazon CloudWatch Logs console.'
+        correct: false
+    -
+        text: 'Add a custom log level parameter for the Lambda function. Set the parameter by using the AWS CLI.'
+        correct: false

@@ -1,0 +1,16 @@
+text: |-
+    A company is running an application on Amazon Elastic Container Service (Amazon ECS). When the company deploys a new version of the application, the company initially needs to expose 10% of live traffic to the new version. After a period of time, the company needs to immediately route all the remaining live traffic to the new version.
+    Which ECS deployment should the company use to meet these requirements?
+options:
+    -
+        text: 'Rolling update'
+        correct: false
+    -
+        text: 'Blue/green with canary'
+        correct: true
+    -
+        text: 'Blue/green with all at once'
+        correct: false
+    -
+        text: 'Blue/green with linear'
+        correct: false

@@ -1,0 +1,16 @@
+text: |-
+    A Developer must analyze performance issues with production-distributed applications written as AWS Lambda functions. These distributed Lambda applications invoke other components that make up the applications.
+    How should the Developer identify and troubleshoot the root cause of the performance issues in production?
+options:
+    -
+        text: 'Add logging statements to the Lambda functions, then use Amazon CloudWatch to view the logs.'
+        correct: false
+    -
+        text: 'Use AWS CloudTrail and then examine the logs.'
+        correct: false
+    -
+        text: 'Use AWS X-Ray, then examine the segments and errors.'
+        correct: true
+    -
+        text: 'Run Amazon Inspector agents and then analyze performance.'
+        correct: false

@@ -1,0 +1,16 @@
+text: |-
+    A company needs to ingest terabytes of data each hour from thousands of sources that are delivered almost continually throughout the day. The volume of messages generated varies over the course of the day. Messages must be delivered in real time for fraud detection and live operational dashboards.
+    Which approach will meet these requirements?
+options:
+    -
+        text: 'Send the messages to an Amazon SQS queue, then process the messages by using a fleet of Amazon EC2 instances'
+        correct: false
+    -
+        text: 'Use the Amazon S3 API to write messages to an S3 bucket, then process the messages by using Amazon Redshift'
+        correct: false
+    -
+        text: 'Use AWS Data Pipeline to automate the movement and transformation of data'
+        correct: false
+    -
+        text: 'Use Amazon Kinesis Data Streams with Kinesis Client Library to ingest and deliver messages'
+        correct: true

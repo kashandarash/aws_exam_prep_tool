@@ -1,0 +1,19 @@
+text: |-
+    A company is using Amazon API Gateway for its REST APIs in an AWS account. A developer wants to allow only IAM users from another AWS account to access the APIs.
+    Which combination of steps should the developer take to meet these requirements? (Select TWO.)
+options:
+    -
+        text: 'Create an IAM permission policy. Attach the policy to each IAM user. Set the method authorization type for the APIs to AWS_IAM. Use Signature Version 4 to sign the API requests.'
+        correct: true
+    -
+        text: 'Create an Amazon Cognito user pool. Add each IAM user to the user pool. Set the method authorization type for the APIs to COGNITO_USER_POOLS. Authenticate by using the IAM credentials in Amazon Cognito. Add the ID token to the request headers.'
+        correct: false
+    -
+        text: 'Create an Amazon Cognito identity pool. Add each IAM user to the identity pool. Set the method authorization type for the APIs to COGNITO_USER_POOLS. Authenticate by using the IAM credentials in Amazon Cognito. Add the access token to the request headers.'
+        correct: false
+    -
+        text: 'Create a resource policy for the APIs to allow access for each IAM user only.'
+        correct: true
+    -
+        text: 'Create an Amazon Cognito authorizer for the APIs to allow access for each IAM user only. Set the method authorization type for the APIs to COGNITO_USER_POOLS.'
+        correct: false

@@ -1,0 +1,17 @@
+text: |-
+    A developer deploys an AWS Lambda function that runs each time a new Amazon S3 bucket is created. The Lambda function is supposed to attach an S3
+    Lifecycle policy to each new S3 bucket. The developer discovers that newly created S3 buckets have no S3 Lifecycle policy attached.
+    Which AWS service should the developer use to find a possible error in the Lambda function?
+options:
+    -
+        text: 'AWS CloudTrail'
+        correct: false
+    -
+        text: 'Amazon S3'
+        correct: false
+    -
+        text: 'AWS CloudFormation'
+        correct: false
+    -
+        text: 'Amazon CloudWatch'
+        correct: true

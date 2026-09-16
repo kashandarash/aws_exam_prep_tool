@@ -1,0 +1,20 @@
+text: |-
+    A developer has built an application that inserts data into an Amazon DynamoDB table. The table is configured to use provisioned capacity. The application is deployed on a burstable nano Amazon EC2 Instance. The application logs show that the application has been failing because of a
+    ProvisionedThroughputExceedException error.
+    Which actions should the developer take to resolve this issue? (Choose two.)
+options:
+    -
+        text: 'Move The application to a larger EC instance.'
+        correct: false
+    -
+        text: 'Increase the number or read capacity units (RCUs) that are provisioned for the DynamoDB table.'
+        correct: false
+    -
+        text: 'Reduce the frequency of requests to DynamoDB by implement ng exponential backoff.'
+        correct: true
+    -
+        text: 'Increase the frequency of requests to DynamoDB by decreasing the retry delay.'
+        correct: false
+    -
+        text: 'Change the capacity mode of the DynamoDB table from provisioned to on-demand.'
+        correct: true

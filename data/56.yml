@@ -1,0 +1,16 @@
+text: |-
+    A company runs an e-commerce website that uses Amazon DynamoDB where pricing for items is dynamically updated in real time. At any given time, multiple updates may occur simultaneously for pricing information on a particular product. This is causing the original editor's changes to be overwritten without a proper review process.
+    Which DynamoDB write option should be selected to prevent this overwriting?
+options:
+    -
+        text: 'Concurrent writes'
+        correct: false
+    -
+        text: 'Conditional writes'
+        correct: true
+    -
+        text: 'Atomic writes'
+        correct: false
+    -
+        text: 'Batch writes'
+        correct: false

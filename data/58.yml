@@ -1,0 +1,16 @@
+text: |-
+    A front-end web application is using Amazon Cognito user pools to handle the user authentication flow. A developer is integrating Amazon DynamoDB into the application using the AWS SDK for JavaScript.
+    How would the developer securely call the API without exposing the access or secret keys?
+options:
+    -
+        text: 'Configure Amazon Cognito identity pools and exchange the JSON Web Token (JWT) for temporary credentials.'
+        correct: true
+    -
+        text: 'Run the web application in an Amazon EC2 instance with the instance profile configured.'
+        correct: false
+    -
+        text: 'Hardcore the credentials, use Amazon S3 to host the web application, and enable server-side encryption.'
+        correct: false
+    -
+        text: 'Use Amazon Cognito user pool JSON Web Tokens (JWITs) to access the DynamoDB APIs.'
+        correct: false
