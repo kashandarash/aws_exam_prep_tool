@@ -8,19 +8,39 @@
         <a href="{{ path('question_add') }}" class="btn btn-primary">Add Questions</a>
     </div>
 
-    <form method="get" action="{{ path('question_list') }}" class="mb-4 col-lg-6">
+    <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-md-3">
+            <div class="border rounded p-3 text-center">
+                <div class="fs-4">{{ overallTotal }}</div>
+                <div class="text-muted small">Total questions</div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="border rounded p-3 text-center">
+                <div class="fs-4">{{ masteredCount }}</div>
+                <div class="text-muted small">Answered correctly {{ constant('App\\Entity\\Question::MASTERY_THRESHOLD') }}+ times</div>
+            </div>
+        </div>
+    </div>
+
+    <form method="get" action="{{ path('question_list') }}" class="mb-4 col-lg-8">
         <div class="input-group">
             <input type="search" name="q" class="form-control" placeholder="Search question text&hellip;" value="{{ search }}">
+            <select name="status" class="form-select" style="max-width: 12rem;">
+                <option value="" {{ status is null ? 'selected' : '' }}>All questions</option>
+                <option value="active" {{ status == 'active' ? 'selected' : '' }}>Active (in tests)</option>
+                <option value="mastered" {{ status == 'mastered' ? 'selected' : '' }}>Mastered ({{ constant('App\\Entity\\Question::MASTERY_THRESHOLD') }}+ correct)</option>
+            </select>
             <button type="submit" class="btn btn-outline-secondary">Search</button>
-            {% if search is not empty %}
+            {% if search is not empty or status is not null %}
                 <a href="{{ path('question_list') }}" class="btn btn-outline-secondary">Clear</a>
             {% endif %}
         </div>
     </form>
 
     {% if questions is empty %}
-        {% if search is not empty %}
-            <p>No questions match &ldquo;{{ search }}&rdquo;.</p>
+        {% if search is not empty or status is not null %}
+            <p>No questions match this search/filter.</p>
         {% else %}
             <p>There are no questions yet. <a href="{{ path('question_add') }}">Import some</a> to get started.</p>
         {% endif %}
@@ -37,6 +57,9 @@
                         {% if question.isMultiAnswer %}
                             <span class="badge text-bg-info ms-2">Choose {{ question.correctIndexes|length }}</span>
                         {% endif %}
+                        <span class="badge ms-2 {{ question.mastered ? 'text-bg-success' : 'text-bg-secondary' }}">
+                            {{ question.correctAnswers }}/{{ constant('App\\Entity\\Question::MASTERY_THRESHOLD') }} correct
+                        </span>
                     </span>
                     <a href="{{ path('question_edit', {id: question.id}) }}" class="btn btn-sm btn-outline-secondary">Edit</a>
                 </div>
@@ -60,11 +83,11 @@
             <nav aria-label="Questions pages">
                 <ul class="pagination">
                     <li class="page-item{{ page <= 1 ? ' disabled' : '' }}">
-                        <a class="page-link" href="{{ path('question_list', {q: search, page: page - 1}) }}">Previous</a>
+                        <a class="page-link" href="{{ path('question_list', {q: search, status: status, page: page - 1}) }}">Previous</a>
                     </li>
                     <li class="page-item disabled"><span class="page-link">Page {{ page }} of {{ totalPages }}</span></li>
                     <li class="page-item{{ page >= totalPages ? ' disabled' : '' }}">
-                        <a class="page-link" href="{{ path('question_list', {q: search, page: page + 1}) }}">Next</a>
+                        <a class="page-link" href="{{ path('question_list', {q: search, status: status, page: page + 1}) }}">Next</a>
                     </li>
                 </ul>
             </nav>

@@ -21,12 +21,14 @@ class QuestionController extends AbstractController
     {
         $search = trim($request->query->getString('q'));
         $page = max(1, $request->query->getInt('page', 1));
+        $status = $request->query->getString('status');
+        $status = \in_array($status, ['active', 'mastered'], true) ? $status : null;
 
-        $result = $questionRepository->search($search, $page, self::QUESTIONS_PER_PAGE);
+        $result = $questionRepository->search($search, $status, $page, self::QUESTIONS_PER_PAGE);
         $totalPages = max(1, (int) ceil($result['total'] / self::QUESTIONS_PER_PAGE));
 
         if ($page > $totalPages) {
-            return $this->redirectToRoute('question_list', ['q' => $search, 'page' => $totalPages]);
+            return $this->redirectToRoute('question_list', ['q' => $search, 'status' => $status, 'page' => $totalPages]);
         }
 
         return $this->render('question/list.html.twig', [
@@ -36,6 +38,9 @@ class QuestionController extends AbstractController
             'perPage' => self::QUESTIONS_PER_PAGE,
             'totalPages' => $totalPages,
             'search' => $search,
+            'status' => $status,
+            'overallTotal' => $questionRepository->count([]),
+            'masteredCount' => $questionRepository->countMastered(),
         ]);
     }
 

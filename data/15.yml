@@ -1,0 +1,17 @@
+text: |-
+    A developer creates a customer managed key for multiple AWS users to encrypt data in Amazon S3. The developer configures Amazon Simple Notification
+    Service (Amazon SNS) to publish a message if key deletion is scheduled. The developer needs to preserve any SNS messages that cannot be delivered so that those messages can be reprocessed.
+    Which AWS service or feature should the developer use to meet this requirement?
+options:
+    -
+        text: 'Amazon Simple Email Service (Amazon SES)'
+        correct: false
+    -
+        text: 'AWS Lambda'
+        correct: false
+    -
+        text: 'Amazon Simple Queue Service (Amazon SQS)'
+        correct: true
+    -
+        text: 'Amazon CloudWatch alarm'
+        correct: false

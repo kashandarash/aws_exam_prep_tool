@@ -1,0 +1,16 @@
+text: |-
+    A company is adding items to an Amazon DynamoDB table from an AWS Lambda function that is written in Python. A developer needs to implement a solution that inserts records in the DynamoDB table and performs automatic retry when the insert fails.
+    Which solution meets these requirements with MINIMUM code changes?
+options:
+    -
+        text: 'Configure the Python code to run the AWS CLI through shell to call the PutItem operation'
+        correct: false
+    -
+        text: 'Call the PutItem operation from Python by using the DynamoDB HTTP API'
+        correct: false
+    -
+        text: 'Queue the items in AWS Glue, which will put them into the DynamoDB table'
+        correct: false
+    -
+        text: 'Use the AWS software development kit (SDK) for Python (boto3) to call the PutItem operation'
+        correct: true

@@ -1,0 +1,19 @@
+text: |-
+    A developer is creating a solution to track an account's Amazon S3 buckets over time. The developer has created an AWS Lambda function that will run on a schedule. The function will list the account's S3 buckets and will store the list in an Amazon DynamoDB table. The developer receives a permissions error when the developer runs the function with the AWSLambdaBasicExecutionRole AWS managed policy.
+    Which combination of permissions should the developer use to resolve this error? (Choose two.)
+options:
+    -
+        text: 'Cross-account IAM role'
+        correct: false
+    -
+        text: 'Permission for the Lambda function to list buckets in Amazon S3'
+        correct: true
+    -
+        text: 'Permission for the Lambda function to write in DynamoDB'
+        correct: true
+    -
+        text: 'Permission for Amazon S3 to invoke the Lambda function'
+        correct: false
+    -
+        text: 'Permission for DynamoDB to invoke the Lambda function'
+        correct: false

@@ -1,0 +1,16 @@
+text: |-
+    A Developer has been asked to create an AWS Lambda function that is triggered any time updates are made to items in an Amazon DynamoDB table. The function has been created, and appropriate permissions have been added to the Lambda execution role. Amazon DynamoDB streams have been enabled for the table, but the function is still not being triggered.
+    Which option would enable DynamoDB table updates to trigger the Lambda function?
+options:
+    -
+        text: 'Change the StreamViewType parameter value to NEW_AND_OLD_IMAGES for the DynamoDB table'
+        correct: false
+    -
+        text: 'Configure event source mapping for the Lambda function'
+        correct: true
+    -
+        text: 'Map an Amazon SNS topic to the DynamoDB streams'
+        correct: false
+    -
+        text: 'Increase the maximum execution time (timeout) setting of the Lambda function'
+        correct: false

@@ -1,0 +1,16 @@
+text: |-
+    A company has an application that analyzes photographs. A developer is preparing the application for deployment to Amazon EC2 instances. The application's image analysis functions require a mix of GPU instances and CPU instances that run on Amazon Linux. The developer needs to add code to the application so that the functions can determine whether they are running on a GPU instance.
+    What should the functions do to obtain this information?
+options:
+    -
+        text: 'Call the DescribeInstances API operation and filter on the current instance ID. Examine the ElasticGpuAssociations property.'
+        correct: false
+    -
+        text: 'Evaluate the GPU AVAILABLE environment variable.'
+        correct: false
+    -
+        text: 'Call the DescribeElasticGpus API operation.'
+        correct: false
+    -
+        text: 'Retrieve the instance type from the instance metadata.'
+        correct: true

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\QuestionRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +14,7 @@ class TestController extends AbstractController
     private const QUESTIONS_PER_TEST = 20;
 
     #[Route('/test/take', name: 'test_take', methods: ['GET', 'POST'])]
-    public function take(Request $request, QuestionRepository $questionRepository): Response
+    public function take(Request $request, EntityManagerInterface $entityManager, QuestionRepository $questionRepository): Response
     {
         if ($request->isMethod('POST')) {
             $questionIds = array_map('intval', $request->request->all('question_ids'));
@@ -33,6 +34,7 @@ class TestController extends AbstractController
 
                 if ($isCorrect) {
                     ++$correct;
+                    $question->incrementCorrectAnswers();
                 }
 
                 $results[] = [
@@ -42,6 +44,8 @@ class TestController extends AbstractController
                 ];
             }
 
+            $entityManager->flush();
+
             return $this->render('test/result.html.twig', [
                 'results' => $results,
                 'correct' => $correct,
@@ -49,12 +53,13 @@ class TestController extends AbstractController
             ]);
         }
 
-        $questions = $questionRepository->findAll();
-        shuffle($questions);
-        $questions = array_slice($questions, 0, self::QUESTIONS_PER_TEST);
+        $available = $questionRepository->findAvailableForTest();
+        shuffle($available);
+        $questions = array_slice($available, 0, self::QUESTIONS_PER_TEST);
 
         return $this->render('test/take.html.twig', [
             'questions' => $questions,
+            'hasQuestions' => $questionRepository->count([]) > 0,
         ]);
     }
 }

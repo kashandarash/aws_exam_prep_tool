@@ -1,0 +1,20 @@
+text: |-
+    A developer is creating a script to automate the deployment process for a serverless application. The developer wants to use an existing AWS Serverless
+    Application Model (AWS SAM) template for the application.
+    What should the developer use for the project? (Choose two.)
+options:
+    -
+        text: 'Call aws cloudformation package to create the deployment package. Call aws cloudformation deploy to deploy the package afterward.'
+        correct: true
+    -
+        text: 'Call sam package to create the deployment package. Call sam deploy to deploy the package afterward.'
+        correct: true
+    -
+        text: 'Call aws s3 cp to upload the AWS SAM template to Amazon S3. Call aws lambda update-function-code to create the application.'
+        correct: false
+    -
+        text: 'Create a ZIP package locally and call aws serverlessrepo create-application to create the application.'
+        correct: false
+    -
+        text: 'Create a ZIP package and upload it to Amazon S3. Call aws cloudformation create-stack to create the application.'
+        correct: false

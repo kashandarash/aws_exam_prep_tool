@@ -1,0 +1,16 @@
+text: |-
+    A Developer is working on an application that handles 10MB documents that contain highly-sensitive data. The application will use AWS KMS to perform client- side encryption.
+    What steps must be followed?
+options:
+    -
+        text: 'Invoke the Encrypt API passing the plaintext data that must be encrypted, then reference the customer managed key ARN in the KeyId parameter'
+        correct: false
+    -
+        text: 'Invoke the GenerateRandom API to get a data encryption key, then use the data encryption key to encrypt the data'
+        correct: false
+    -
+        text: 'Invoke the GenerateDataKey API to retrieve the encrypted version of the data encryption key to encrypt the data'
+        correct: false
+    -
+        text: 'Invoke the GenerateDataKey API to retrieve the plaintext version of the data encryption key to encrypt the data'
+        correct: true

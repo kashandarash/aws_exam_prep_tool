@@ -1,0 +1,20 @@
+text: |-
+    A developer is working on a web application that runs on Amazon Elastic Container Service (Amazon ECS) and uses an Amazon DynamoDB table to store data.
+    The application performs a large number of read requests against a small set of the table data.
+    How can the developer improve the performance of these requests? (Choose two.)
+options:
+    -
+        text: 'Create an Amazon ElastiCache cluster. Configure the application to cache data in the cluster.'
+        correct: false
+    -
+        text: 'Create a DynamoDB Accelerator (DAX) cluster. Configure the application to use the DAX cluster for DynamoDB requests.'
+        correct: true
+    -
+        text: 'Configure the application to make strongly consistent read requests against the DynamoDB table.'
+        correct: false
+    -
+        text: 'Increase the read capacity of the DynamoDB table.'
+        correct: false
+    -
+        text: 'Enable DynamoDB adaptive capacity.'
+        correct: false

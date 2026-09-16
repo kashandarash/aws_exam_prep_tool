@@ -6,7 +6,11 @@
     <h1 class="mb-4">Take Test</h1>
 
     {% if questions is empty %}
-        <p>There are no questions yet. <a href="{{ path('question_add') }}">Add a question</a> to start a test.</p>
+        {% if hasQuestions %}
+            <p>Every question has already been answered correctly {{ constant('App\\Entity\\Question::MASTERY_THRESHOLD') }}+ times, so there's nothing left to practice. Check the <a href="{{ path('question_list') }}">Questions</a> page to review them.</p>
+        {% else %}
+            <p>There are no questions yet. <a href="{{ path('question_add') }}">Add a question</a> to start a test.</p>
+        {% endif %}
     {% else %}
         <form method="post" action="{{ path('test_take') }}">
             {% for question in questions %}

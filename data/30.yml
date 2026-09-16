@@ -1,0 +1,16 @@
+text: |-
+    A developer is writing an AWS Lambda function. The developer wants to log key events that occur during the Lambda function and include a unique identifier to associate the events with a specific function invocation.
+    Which of the following will help the developer accomplish this objective?
+options:
+    -
+        text: 'Obtain the request identifier from the Lambda context object. Architect the application to write logs to the console.'
+        correct: true
+    -
+        text: 'Obtain the request identifier from the Lambda event object. Architect the application to write logs to a file.'
+        correct: false
+    -
+        text: 'Obtain the request identifier from the Lambda event object. Architect the application to write logs to the console.'
+        correct: false
+    -
+        text: 'Obtain the request identifier from the Lambda context object. Architect the application to write logs to a file.'
+        correct: false

@@ -1,0 +1,16 @@
+text: |-
+    A developer is writing an AWS Lambda function. The Lambda function needs to access items that are stored in an Amazon DynamoDB table.
+    What is the MOST secure way to configure this access for the Lambda function?
+options:
+    -
+        text: 'Create an IAM user that has permissions to access the DynamoDB table. Create an access key for this user. Store the access key ID and secret access key in the Lambda function environment variables.'
+        correct: false
+    -
+        text: "Add a resource-based policy to the DynamoDB table to allow access from the Lambda function's IAM role."
+        correct: false
+    -
+        text: "Create an IAM policy that allows access to the DynamoDB table. Attach this policy to the Lambda function's IAM role."
+        correct: true
+    -
+        text: 'Create a DynamoDB Accelerator (DAX) cluster. Configure the Lambda function to use the DAX duster to access the DynamoDB table.'
+        correct: false

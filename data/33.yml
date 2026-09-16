@@ -1,0 +1,16 @@
+text: |-
+    When a Developer tries to run an AWS CodeBuild project, it raises an error because the length of all environment variables exceeds the limit for the combined maximum of characters.
+    What is the recommended solution?
+options:
+    -
+        text: 'Add the export LC_ALL=ג€en_US.utf8ג€ command to the pre_build section to ensure POSIX localization.'
+        correct: false
+    -
+        text: 'Use Amazon Cognito to store key-value pairs for large numbers of environment variables.'
+        correct: false
+    -
+        text: 'Update the settings for the build project to use an Amazon S3 bucket for large numbers of environment variables.'
+        correct: false
+    -
+        text: 'Use AWS Systems Manager Parameter Store to store large numbers of environment variables.'
+        correct: true

@@ -1,0 +1,16 @@
+text: |-
+    A company is using AWS CodeDeploy for all production deployments. A developer has an Amazon Elastic Container Service (Amazon ECS) application that uses the CodeDeployDefault.ECSAIIAtOnce configuration. The developer needs to update the production environment in increments of 10% until the entire production environment is updated.
+    Which CodeDeploy configuration should the developer use to meet these requirements?
+options:
+    -
+        text: CodeDeployDefault.ECSCanary10Percent5Minutes
+        correct: false
+    -
+        text: CodeDeployDefault.ECSLinear10PercentEvery3Minutes
+        correct: true
+    -
+        text: CodeDeployDefault.OneAtATime
+        correct: false
+    -
+        text: CodeDeployDefault.LambdaCanary10Percent5Minutes
+        correct: false

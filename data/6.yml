@@ -1,0 +1,16 @@
+text: |-
+    A developer has created a Java application that makes HTTP requests directly to AWS services. Application logging shows 5xx HTTP response codes that occur at irregular intervals. The errors are affecting users.
+    How should the developer update the application to improve the application's resiliency?
+options:
+    -
+        text: 'Revise the request content in the application code.'
+        correct: false
+    -
+        text: 'Use the AWS SDK for Java to interact with AWS APIs.'
+        correct: true
+    -
+        text: 'Scale out the application so that more instances of the application are running.'
+        correct: false
+    -
+        text: 'Add additional logging to the application code.'
+        correct: false

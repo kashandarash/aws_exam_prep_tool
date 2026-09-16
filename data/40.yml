@@ -1,0 +1,16 @@
+text: |-
+    A company maintains a REST service using Amazon API Gateway and the API Gateway native API key validation. The company recently launched a new registration page, which allows users to sign up for the service. The registration page creates a new API key using CreateApiKey and sends the new key to the user. When the user attempts to call the API using this key, the user receives a 403 Forbidden error. Existing users are unaffected and can still call the API.
+    What code updates will grant these new users access to the API?
+options:
+    -
+        text: 'The createDeployment method must be called so the API can be redeployed to include the newly created API key.'
+        correct: false
+    -
+        text: "The updateAuthorizer method must be called to update the API's authorizer to include the newly created API key."
+        correct: false
+    -
+        text: 'The importApiKeys method must be called to import all newly created API keys into the current stage of the API.'
+        correct: false
+    -
+        text: 'The createUsagePlanKey method must be called to associate the newly created API key with the correct usage plan.'
+        correct: true

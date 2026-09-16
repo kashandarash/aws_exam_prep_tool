@@ -1,0 +1,16 @@
+text: |-
+    A developer is implementing user authentication and authorization for a web application that is hosted on an Amazon EC2 instance. The developer needs to ensure that the user credentials are encrypted and secure when they are stored and transmitted.
+    Which solution will meet these requirements?
+options:
+    -
+        text: 'Activate web server modules for authentication and authorization on the instance. Use HTTP basic authentication for the user login.'
+        correct: false
+    -
+        text: 'Deploy a custom authentication and authorization API over HTTP. Store the user credentials on Amazon ElastiCache for Redis.'
+        correct: false
+    -
+        text: 'Use Amazon Cognito to configure a user pool. Use the Amazon Cognito API to authenticate and authorize the users.'
+        correct: true
+    -
+        text: 'Create IAM users. Assign the users to different IAM groups. Use AWS Single Sign-On to authenticate and authorize each user.'
+        correct: false

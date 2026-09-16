@@ -1,0 +1,17 @@
+text: |-
+    A development team has been using a builder server that is hosted on an Amazon EC2 instance to perform builds and deployments for the last 3 months. The
+    EC2 instance's instance profile uses an IAM role that contains the Administrator Access managed policy. The development team must replace that policy with a policy that provides only the required permissions.
+    What is the FASTEST way to create a custom 1AM policy for the EC2 instance to meet this requirement?
+options:
+    -
+        text: 'Create a new IAM policy based on services that the build server deployed or updated in the last 3 months.'
+        correct: false
+    -
+        text: 'Create a new IAM policy that includes all actions that AWS CloudTrail recorded for the IAM role in the last 3 months.'
+        correct: true
+    -
+        text: 'Create a new permissions boundary policy that denies all access. Associate the permissions boundaries with the IAM role.'
+        correct: false
+    -
+        text: 'Create a new IAM policy by using Amazon Athena to query an Amazon S3 bucket that contains AWS CloudTrail events that the IAM role performed in the last 3 months.'
+        correct: false

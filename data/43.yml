@@ -1,0 +1,14 @@
+text: 'Where should the appspec.yml file be placed in order for AWS CodeDeploy to work?'
+options:
+    -
+        text: 'In the root of the application source code directory structure'
+        correct: true
+    -
+        text: 'In the bin folder along with all the complied code'
+        correct: false
+    -
+        text: 'In an S3 bucket'
+        correct: false
+    -
+        text: 'In the same folder as the application configuration files'
+        correct: false

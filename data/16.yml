@@ -1,0 +1,16 @@
+text: |-
+    A developer needs to deploy an application to AWS Elastic Beanstalk for a company. The application consists of a single Docker image. The company's automated continuous integration and continuous delivery (CI/CD) process builds the Docker image and pushes the image to a public Docker registry.
+    How should the developer deploy the application to Elastic Beanstalk?
+options:
+    -
+        text: 'Create a Dockerfile. Configure Elastic Beanstalk to build the application as a Docker image.'
+        correct: false
+    -
+        text: 'Create a docker-compose.yml file. Use the Elastic Beanstalk CLI to deploy the application.'
+        correct: true
+    -
+        text: 'Create a .zip file that contains the Docker image. Upload the .zip file to Elastic Beanstalk.'
+        correct: false
+    -
+        text: 'Create a Dockerfile. Run the Elastic Beanstalk CLI eb local run command in the same directory.'
+        correct: false

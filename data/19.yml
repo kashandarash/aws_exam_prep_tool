@@ -1,0 +1,17 @@
+text: |-
+    A company has point-of-sale devices across thousands of retail shops that synchronize sales transactions with a centralized system. The system includes an
+    Amazon API Gateway API that exposes an AWS Lambda function. The Lambda function processes the transactions and stores the transactions in Amazon RDS for MySQL. The number of transactions increases rapidly during the day and is near zero at night.
+    How can a developer increase the elasticity of the system MOST cost-effectively?
+options:
+    -
+        text: 'Migrate from Amazon RDS to Amazon Aurora MySQL. Use an Aurora Auto Scaling policy to scale road replicas based on CPU consumption.'
+        correct: false
+    -
+        text: 'Migrate from Amazon RDS to Amazon Aurora MySQL. Use an Aurora Auto Scaling policy to scale read replicas based on the number of database connections.'
+        correct: false
+    -
+        text: 'Create an Amazon Simple Queue Service (Amazon SQS) queue. Publish transactions to the queue. Set the queue to invoke the Lambda function. Turn on enhanced fanout for the Lambda function.'
+        correct: false
+    -
+        text: 'Create an Amazon Simple Queue Service (Amazon SQS) queue. Publish transactions to the queue. Set the queue to invoke the Lambda function. Set the reserved concurrency of the Lambda function to be less than the number of database connections.'
+        correct: true

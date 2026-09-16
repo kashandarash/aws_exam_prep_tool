@@ -1,0 +1,16 @@
+text: |-
+    A company is providing services to many downstream consumers. Each consumer may connect to one or more services. This has resulted in a complex architecture that is difficult to manage and does not scale well. The company needs a single interface to manage these services to consumers.
+    Which AWS service should be used to refactor this architecture?
+options:
+    -
+        text: 'AWS Lambda'
+        correct: false
+    -
+        text: 'AWS X-Ray'
+        correct: false
+    -
+        text: 'Amazon SQS'
+        correct: false
+    -
+        text: 'Amazon API Gateway'
+        correct: true

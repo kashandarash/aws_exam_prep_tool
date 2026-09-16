@@ -1,0 +1,17 @@
+text: |-
+    A developer is configuring an Amazon CloudFront distribution for a new application to provide encryption in transit. The application is running in the eu-west-1
+    Region. The developer creates a new certificate in AWS Certificate Manager (ACM) in eu-west-1, but the certificate is not visible in the CloudFront distribution settings.
+    What should the developer do to fix this problem?
+options:
+    -
+        text: 'Create the certificate for the domain in the same Region as the application. Ensure that the alternate domain name (CNAME) in the distribution settings matches the domain name in the certificate.'
+        correct: false
+    -
+        text: 'Create the certificate in the eu-west-1 Region. Ensure that the alternate domain name (CNAME) in the distribution settings matches the domain name in the certificate.'
+        correct: true
+    -
+        text: 'Recreate the CloudFront distribution in the same Region as the certificate.'
+        correct: false
+    -
+        text: 'Specify the ACM certificate name as the default root object of the CloudFront distribution.'
+        correct: false

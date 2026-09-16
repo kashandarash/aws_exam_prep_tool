@@ -1,0 +1,16 @@
+text: |-
+    A developer is building an application that runs behind an Application Load Balancer (ALB). The ALB is configured as the origin for an Amazon CloudFront distribution. Users will log in to the application by using their social media accounts.
+    How can the developer authenticate users?
+options:
+    -
+        text: 'Validate the users by inspecting the tokens in an AWS Lambda authorizer on the ALB.'
+        correct: false
+    -
+        text: 'Configure the ALB to use Amazon Cognito as one of the authentication providers.'
+        correct: true
+    -
+        text: 'Configure CloudFront to use Amazon Cognito as one of the authentication providers.'
+        correct: false
+    -
+        text: 'Validate the users by calling the Amazon Cognito API in an AWS Lambda authorizer on the ALB.'
+        correct: false

@@ -1,0 +1,16 @@
+text: |-
+    A developer needs to write an AWS CloudFormation template on a local machine and deploy a CloudFormation stack to AWS.
+    What must the developer do to complete these tasks?
+options:
+    -
+        text: 'Install the AWS CLI. Configure the AWS CLI by using an IAM user name and password.'
+        correct: false
+    -
+        text: 'Install the AWS CLI. Configure the AWS CLI by using an SSH key.'
+        correct: false
+    -
+        text: 'Install the AWS CLI. Configure the AWS CLI by using an IAM user access key and secret key.'
+        correct: true
+    -
+        text: 'Install an AWS software development kit (SDK). Configure the SDK by using an X.509 certificate.'
+        correct: false

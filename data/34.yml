@@ -1,0 +1,16 @@
+text: |-
+    A Development team decides to adopt a continuous integration/continuous delivery (CI/CD) process using AWS CodePipeline and AWS CodeCommit for a new application. However, management wants a person to review and approve the code before it is deployed to production.
+    How can the Development team add a manual approver to the CI/CD pipeline?
+options:
+    -
+        text: 'Use AWS SES to send an email to approvers when their action is required. Develop a simple application that allows approvers to accept or reject a build. Invoke an AWS Lambda function to advance the pipeline when a build is accepted.'
+        correct: false
+    -
+        text: 'If approved, add an approved tag when pushing changes to the CodeCommit repository. CodePipeline will proceed to build and deploy approved commits without interruption.'
+        correct: false
+    -
+        text: 'Add an approval step to CodeCommit. Commits will not be saved until approved.'
+        correct: false
+    -
+        text: 'Add an approval action to the pipeline. Configure the approval action to publish to an Amazon SNS topic when approval is required. The pipeline execution will stop and wait for an approval.'
+        correct: true

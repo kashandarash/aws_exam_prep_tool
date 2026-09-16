@@ -1,0 +1,17 @@
+text: |-
+    A company experienced partial downtime during the last deployment of a new application. AWS Elastic Beanstalk split the environment's Amazon EC2 instances into batches and deployed a new version one batch at a time after taking them out of service. Therefore, full capacity was not maintained during deployment.
+    The developer plans to release a new version of the application, and is looking for a policy that will maintain full capacity and minimize the impact of the failed deployment.
+    Which deployment policy should the developer use?
+options:
+    -
+        text: Immutable
+        correct: true
+    -
+        text: 'All at Once'
+        correct: false
+    -
+        text: Rolling
+        correct: false
+    -
+        text: 'Rolling with an Additional Batch'
+        correct: false

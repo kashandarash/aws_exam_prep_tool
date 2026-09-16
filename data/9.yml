@@ -1,0 +1,19 @@
+text: |-
+    A developer designed an application on an Amazon EC2 instance. The application makes API requests to objects in an Amazon S3 bucket.
+    Which combination of steps will ensure that the application makes the API requests in the MOST secure manner? (Choose two.)
+options:
+    -
+        text: 'Create an IAM user that has permissions to the S3 bucket. Add the user to an IAM group.'
+        correct: false
+    -
+        text: 'Create an IAM role that has permissions to the S3 bucket.'
+        correct: true
+    -
+        text: 'Add the IAM role to an instance profile. Attach the instance profile to the EC2 instance.'
+        correct: true
+    -
+        text: 'Create an IAM role that has permissions to the S3 bucket. Assign the role to an 1AM group.'
+        correct: false
+    -
+        text: 'Store the credentials of the IAM user in the environment variables on the EC2 instance.'
+        correct: false

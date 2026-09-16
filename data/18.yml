@@ -1,0 +1,19 @@
+text: |-
+    A company is using AWS Elastic Beanstalk to deploy a three-tier application. The application uses an Amazon RDS DB instance as the database tier. The company wants to decouple the DB instance from the Elastic Beanstalk environment.
+    Which combination of steps should a developer lake to meet this requirement? (Choose two.)
+options:
+    -
+        text: 'Create a new Elastic Beanstalk environment that connects to the DB instance.'
+        correct: false
+    -
+        text: 'Create a new DB instance from a snapshot of the previous DB instance.'
+        correct: true
+    -
+        text: 'Use the Elastic Beanstalk CLI to decouple the DB instance.'
+        correct: false
+    -
+        text: 'Use the AWS CLI to decouple the DB instance.'
+        correct: false
+    -
+        text: 'Modify the current Elastic Beanstalk environment to connect to the DB instance.'
+        correct: true

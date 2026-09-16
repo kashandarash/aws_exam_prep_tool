@@ -1,0 +1,16 @@
+text: |-
+    A company is running a Docker application on Amazon ECS. The application must scale based on user load in the last 15 seconds.
+    How should a Developer instrument the code so that the requirement can be met?
+options:
+    -
+        text: 'Create a high-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 30 seconds'
+        correct: false
+    -
+        text: 'Create a high-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 5 seconds'
+        correct: true
+    -
+        text: 'Create a standard-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 30 seconds'
+        correct: false
+    -
+        text: 'Create a standard-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 5 seconds'
+        correct: false

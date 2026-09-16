@@ -8,6 +8,12 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: QuestionRepository::class)]
 class Question
 {
+    /**
+     * A question is retired from tests once it's been answered correctly at
+     * least this many times.
+     */
+    public const MASTERY_THRESHOLD = 3;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -21,6 +27,9 @@ class Question
      */
     #[ORM\Column(type: 'json')]
     private array $options = [];
+
+    #[ORM\Column(options: ['default' => 0])]
+    private int $correctAnswers = 0;
 
     public function getId(): ?int
     {
@@ -71,5 +80,22 @@ class Question
     public function isMultiAnswer(): bool
     {
         return count($this->getCorrectIndexes()) > 1;
+    }
+
+    public function getCorrectAnswers(): int
+    {
+        return $this->correctAnswers;
+    }
+
+    public function incrementCorrectAnswers(): static
+    {
+        ++$this->correctAnswers;
+
+        return $this;
+    }
+
+    public function isMastered(): bool
+    {
+        return $this->correctAnswers >= self::MASTERY_THRESHOLD;
     }
 }

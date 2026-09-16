@@ -1,0 +1,16 @@
+text: |-
+    A company that has multiple offices uses an Amazon DynamoDB table to store employee payroll information. Item attributes consist of employee names, office identifiers, and cumulative daily hours worked The most frequently used query extracts a report of an alphabetical subset of employees for a specific office.
+    Which design of the DynamoDB table primary key will have the MINIMUM performance impact?
+options:
+    -
+        text: 'Partition key on the office identifier and sort key on the employee name'
+        correct: true
+    -
+        text: 'Partition key on the employee name and sort key on the office identifier'
+        correct: false
+    -
+        text: 'Partition key on the employee name'
+        correct: false
+    -
+        text: 'Partition key on the office identifier'
+        correct: false

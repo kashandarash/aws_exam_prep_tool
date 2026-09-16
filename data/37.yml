@@ -1,0 +1,16 @@
+text: |-
+    A developer has built a market application that stores pricing data in Amazon DynamoDB with Amazon ElastiCache in front. The prices of items in the market change frequently. Sellers have begun complaining that, after they update the price of an item, the price does not actually change in the product listing.
+    What could be causing this issue?
+options:
+    -
+        text: 'The cache is not being invalidated when the price of the item is changed'
+        correct: true
+    -
+        text: 'The price of the item is being retrieved using a write-through ElastiCache cluster'
+        correct: false
+    -
+        text: 'The DynamoDB table was provisioned with insufficient read capacity'
+        correct: false
+    -
+        text: 'The DynamoDB table was provisioned with insufficient write capacity'
+        correct: false

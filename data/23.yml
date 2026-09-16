@@ -1,0 +1,18 @@
+text: |-
+    A company hosts a microservices application that uses Amazon API Gateway. AWS Lambda, Amazon Simple Queue Service (Amazon SQS), and Amazon
+    DynamoDB. One of the Lambda functions adds messages to an SQS FIFO queue.
+    When a developer checks the application logs, the developer finds a few duplicated items in a DynamoDB table. The items were inserted by another polling function that processes messages from the queue.
+    What is the MOST likely cause of this issue?
+options:
+    -
+        text: 'Write operations on the DynamoDB table are being throttled.'
+        correct: false
+    -
+        text: 'The SQS queue delivered the message to the function more than once.'
+        correct: false
+    -
+        text: 'API Gateway duplicated the message in the SQS queue.'
+        correct: false
+    -
+        text: 'The polling function timeout is greater than the queue visibility timeout.'
+        correct: true

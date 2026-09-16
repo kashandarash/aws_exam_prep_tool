@@ -28,15 +28,23 @@ class QuestionRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param 'active'|'mastered'|null $status
+     *
      * @return array{items: list<Question>, total: int}
      */
-    public function search(?string $searchText, int $page, int $perPage): array
+    public function search(?string $searchText, ?string $status, int $page, int $perPage): array
     {
         $qb = $this->createQueryBuilder('q');
 
         if (null !== $searchText && '' !== $searchText) {
             $qb->andWhere('q.text LIKE :search')
                 ->setParameter('search', '%'.$searchText.'%');
+        }
+
+        if ('mastered' === $status) {
+            $qb->andWhere('q.correctAnswers >= :threshold')->setParameter('threshold', Question::MASTERY_THRESHOLD);
+        } elseif ('active' === $status) {
+            $qb->andWhere('q.correctAnswers < :threshold')->setParameter('threshold', Question::MASTERY_THRESHOLD);
         }
 
         $total = (int) (clone $qb)
@@ -52,5 +60,27 @@ class QuestionRepository extends ServiceEntityRepository
             ->getResult();
 
         return ['items' => $items, 'total' => $total];
+    }
+
+    public function countMastered(): int
+    {
+        return (int) $this->createQueryBuilder('q')
+            ->select('COUNT(q.id)')
+            ->andWhere('q.correctAnswers >= :threshold')
+            ->setParameter('threshold', Question::MASTERY_THRESHOLD)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    /**
+     * @return list<Question>
+     */
+    public function findAvailableForTest(): array
+    {
+        return $this->createQueryBuilder('q')
+            ->andWhere('q.correctAnswers < :threshold')
+            ->setParameter('threshold', Question::MASTERY_THRESHOLD)
+            ->getQuery()
+            ->getResult();
     }
 }

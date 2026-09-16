@@ -1,0 +1,19 @@
+text: |-
+    A company hosts a three-tier web application on AWS behind an Amazon CloudFront distribution. A developer wants a dashboard to monitor error rates and anomalies of the CloudFront distribution with the shortest possible refresh interval.
+    Which combination of slops should the developer take to meet these requirements? (Choose two.)
+options:
+    -
+        text: 'Activate real-time logs on the CloudFront distribution. Create a stream in Amazon Kinesis Data Streams.'
+        correct: true
+    -
+        text: 'Export the CloudFront logs to an Amazon S3 bucket. Detect anomalies and error rates with Amazon QuickSight.'
+        correct: false
+    -
+        text: 'Configure Amazon Kinesis Data Streams to deliver logs to Amazon OpenSearch Service (Amazon Elasticsearch Service). Create a dashboard in OpenSearch Dashboards (Kibana).'
+        correct: true
+    -
+        text: 'Create Amazon CloudWatch alarms based on expected values of selected CloudWatch metrics to detect anomalies and errors.'
+        correct: false
+    -
+        text: 'Design an Amazon CloudWatch dashboard of the selected CloudFront distribution metrics.'
+        correct: false

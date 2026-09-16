@@ -1,0 +1,17 @@
+text: |-
+    An application uploads photos to an Amazon S3 bucket. Each photo that is uploaded to the S3 bucket must be resized to a thumbnail image by the application.
+    Each thumbnail image is uploaded with a new name in the same S3 bucket.
+    Which AWS service can a developer configure to directly process each single S3 event for each S3 object upload?
+options:
+    -
+        text: 'Amazon EC2'
+        correct: false
+    -
+        text: 'Amazon Elastic Container Service (Amazon ECS)'
+        correct: false
+    -
+        text: 'AWS Elastic Beanstalk'
+        correct: false
+    -
+        text: 'AWS Lambda'
+        correct: true
