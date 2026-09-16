@@ -55,24 +55,9 @@ class QuestionController extends AbstractController
 
         if ($request->isMethod('POST')) {
             $text = trim($request->request->getString('text'));
+            $options = Question::buildOptions($request->request->all('option'));
 
-            $options = [];
-            foreach ($request->request->all('option') as $row) {
-                $optionText = trim((string) ($row['text'] ?? ''));
-
-                if ('' === $optionText) {
-                    continue;
-                }
-
-                $options[] = [
-                    'text' => $optionText,
-                    'correct' => !empty($row['correct']),
-                ];
-            }
-
-            $hasCorrectOption = [] !== array_filter($options, static fn (array $option): bool => $option['correct']);
-
-            if ('' === $text || count($options) < 2 || !$hasCorrectOption) {
+            if ('' === $text || null === $options) {
                 $this->addFlash('error', 'Please fill in the question, at least two options, and mark at least one option as correct.');
 
                 return $this->redirectToRoute('question_edit', ['id' => $id]);
@@ -122,7 +107,7 @@ class QuestionController extends AbstractController
             // Seed with normalized text of every question already in the bank, so
             // freshly-imported questions are also deduplicated against them and
             // against each other in the same batch.
-            $seenTexts = array_fill_keys(array_map(self::normalize(...), $questionRepository->findAllTexts()), true);
+            $seenTexts = array_fill_keys(array_map(Question::normalizeText(...), $questionRepository->findAllTexts()), true);
 
             $added = 0;
             $duplicates = 0;
@@ -130,29 +115,14 @@ class QuestionController extends AbstractController
 
             foreach ($extracted as $item) {
                 $text = trim((string) ($item['text'] ?? ''));
+                $options = Question::buildOptions((array) ($item['options'] ?? []));
 
-                $options = [];
-                foreach ((array) ($item['options'] ?? []) as $option) {
-                    $optionText = trim((string) ($option['text'] ?? ''));
-
-                    if ('' === $optionText) {
-                        continue;
-                    }
-
-                    $options[] = [
-                        'text' => $optionText,
-                        'correct' => (bool) ($option['correct'] ?? false),
-                    ];
-                }
-
-                $hasCorrectOption = [] !== array_filter($options, static fn (array $o): bool => $o['correct']);
-
-                if ('' === $text || count($options) < 2 || !$hasCorrectOption) {
+                if ('' === $text || null === $options) {
                     ++$invalid;
                     continue;
                 }
 
-                $normalized = self::normalize($text);
+                $normalized = Question::normalizeText($text);
 
                 if (isset($seenTexts[$normalized])) {
                     ++$duplicates;
@@ -323,11 +293,6 @@ class QuestionController extends AbstractController
             ],
             'required' => ['questions'],
         ];
-    }
-
-    private static function normalize(string $text): string
-    {
-        return mb_strtolower(trim(preg_replace('/\s+/u', ' ', $text) ?? $text));
     }
 
     private function isBedrockConnected(BedrockRuntimeClient $bedrock): bool

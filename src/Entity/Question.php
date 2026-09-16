@@ -98,4 +98,50 @@ class Question
     {
         return $this->correctAnswers >= self::MASTERY_THRESHOLD;
     }
+
+    /**
+     * A comparison key for detecting the same question re-submitted (via a
+     * different import, a re-import of the same source, etc.): whitespace-
+     * insensitive and case-insensitive, but otherwise not fuzzy.
+     */
+    public static function normalizeText(string $text): string
+    {
+        return mb_strtolower(trim(preg_replace('/\s+/u', ' ', $text) ?? $text));
+    }
+
+    /**
+     * Builds a valid options list out of raw text/correct pairs (e.g. from a
+     * submitted form, or a Bedrock/YAML import), dropping blank options.
+     * Returns null when the result wouldn't be a usable question: fewer than
+     * two options, or none marked correct.
+     *
+     * @param iterable<array{text?: string, correct?: bool|string|null}> $rawOptions
+     *
+     * @return list<array{text: string, correct: bool}>|null
+     */
+    public static function buildOptions(iterable $rawOptions): ?array
+    {
+        $options = [];
+
+        foreach ($rawOptions as $rawOption) {
+            $optionText = trim((string) ($rawOption['text'] ?? ''));
+
+            if ('' === $optionText) {
+                continue;
+            }
+
+            $options[] = [
+                'text' => $optionText,
+                'correct' => (bool) ($rawOption['correct'] ?? false),
+            ];
+        }
+
+        $hasCorrectOption = [] !== array_filter($options, static fn (array $option): bool => $option['correct']);
+
+        if (count($options) < 2 || !$hasCorrectOption) {
+            return null;
+        }
+
+        return $options;
+    }
 }
